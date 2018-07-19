@@ -1,20 +1,25 @@
 ---
 title: "Pdf (Latex) tries"
 subtitle : "Une sorte d'exploration pour utiliser un template."
-author: BFC
-abstract: "This is just an experiment on formatting with a new template"
+author: Bruno Fischer Colonimos
+abstract: |
+    This is just an experiment on formatting with a new template.  
+    I would certainly drag it for a long time, in order to cover many lines. But it will certainly be BORING,
+    
+    BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING  
+    BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING
+    
 documentclass: article
 # classoption: a4paper
 # header-includes: \usepackage{fancyhdr}\pagestyle{fancy} \fancyfoot[C]{\thetitle \ \textemdash \ page \thepage}
 header-includes:
 - \usepackage{fancyhdr}
 - \pagestyle{fancy}
-# - \fancyhead[CO,CE]{This is fancy header}
-# - \fancyfoot[C]{\thetitle \ \textemdash \ \thepage}
-- \fancyfoot[CE,CO]{\theauthor} # thetitle ne marche pas et donne le n0 de section
-- \fancyfoot[LE,RO]{\thepage}
+- \fancyfoot[CE,CO]{\theauthor \ --\ \thedoctitle} # thetitle ne marche pas et donne le n0 de section
+- \fancyfoot[LE, RO]{\thepage}
 
-# footer:  "\\thetitle \\ \\textemdash \\ \\thepage"
+# footer: yes #????
+babel: english # francais # english
 output: 
     pdf_document:
       number_section: yes
@@ -22,18 +27,13 @@ output:
       template: common/ptemplate3.tex
 urlcolor: blue
 fontsize: 12pt
-geometry: "a4paper, left=2cm,right=2cm,top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm"
-subparagraph: yes  # nécessaire avex titlesec 
+geometry: "a4paper, left=2.2cm,right=2.2cm,top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm"
+subparagraph: yes  # nécessaire avec titlesec sinon erreur avec paragraph et subparagraph
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, fig.pos = "H")
 ```
-
-************************
-
-![](common/logoipag.jpg){width=100px}
-
 
 ************************
 
@@ -42,7 +42,7 @@ Lorem ipsum
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.
 
-Vivamus{}
+Vivamus{-}
 -------
 Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.
 

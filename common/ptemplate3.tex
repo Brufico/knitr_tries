@@ -254,6 +254,9 @@ $endfor$
 
 % ====================================================================================
 % my additions 
+
+\def \thedoctitle {$title$}
+
 %(redef sections)
 
 % \makeatletter
@@ -290,20 +293,20 @@ $endfor$
 % \titlespacing\paragraph{0pt}{10pt plus 10pt minus 2pt}{6pt plus 1pt minus 1pt}
 % \titlespacing\subparagraph{0pt}{6pt plus 1pt minus 1pt}{2pt plus 1pt minus 1pt}
 
-\titlespacing\section{-10pt}{*4}{*2.3}
-\titlespacing\subsection{-10pt}{*3.5}{*1.5}
-\titlespacing\subsubsection{-10pt}{*3}{*1}
+\titlespacing\section{-20pt}{*4}{*2.3}
+\titlespacing\subsection{-20pt}{*3.5}{*1.5}
+\titlespacing\subsubsection{-20pt}{*3}{*1}
 \titlespacing\paragraph{0pt}{*2}{*1}
-\titlespacing\subparagraph{0pt}{*.6}{*0}
+\titlespacing\subparagraph{20pt}{*.6}{*0}
 
 % changer le nom de la table des matières (content)
-\renewcommand*\contentsname{Table}
-
-
-
+% \renewcommand*\contentsname{Table}
+% \usepackage[francais]{babel} 
+\usepackage[$babel$]{babel}
+%% \renewcommand{\contentsname}{Sommaire} % renommer le sommaire : ne fonctionna pas ici
 % intégration des packages dans le template 
 \usepackage{float}
-
+\usepackage{ifthen}
 
 
 
@@ -311,21 +314,25 @@ $endfor$
 
 \begin{document}
 
-% added logo. does'nt work yet (title gets on next page)
+
+
+$if(title)$
+\maketitle
+$endif$
+
+% added logo. does work here, after the title
 \begin{figure}[H]
 \centering
 \includegraphics[width=100pt]{common/logoipag}
 \end{figure}
 
 
-$if(title)$
-\maketitle
-$endif$
 $if(abstract)$
 \begin{abstract}
 $abstract$
 \end{abstract}
 $endif$
+
 
 $for(include-before)$
 $include-before$
@@ -337,6 +344,13 @@ $if(colorlinks)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
 $endif$
 \setcounter{tocdepth}{$toc-depth$}
+
+% traduction === trouver la condition !!!!!
+\ifthenelse{\equal{$babel$}{francais}}
+{\renewcommand{\contentsname}{Sommaire}}
+{}
+% \fi  inutile
+% traduction ==
 \tableofcontents
 }
 $endif$
