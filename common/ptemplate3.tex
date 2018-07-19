@@ -57,7 +57,7 @@ $endif$
 % $if(geometry)$
 % \usepackage[geometry]{geometry}
 % $endif$
-% ****  modif: footer
+% ****  modif: footer mystery here !!!!!!!!!!!!!!
 $if(footer)$
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -308,7 +308,16 @@ $endfor$
 
 
 %=====================================================================================
+
 \begin{document}
+
+% added logo. does'nt work yet (title gets on next page)
+\begin{figure}[H]
+\centering
+\includegraphics[width=100pt]{common/logoipag}
+\end{figure}
+
+
 $if(title)$
 \maketitle
 $endif$

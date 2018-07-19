@@ -11,7 +11,7 @@ header-includes:
 - \pagestyle{fancy}
 # - \fancyhead[CO,CE]{This is fancy header}
 # - \fancyfoot[C]{\thetitle \ \textemdash \ \thepage}
-- \fancyfoot[CE,CO]{\thetitle}
+- \fancyfoot[CE,CO]{\theauthor} # thetitle ne marche pas et donne le n0 de section
 - \fancyfoot[LE,RO]{\thepage}
 
 # footer:  "\\thetitle \\ \\textemdash \\ \\thepage"
