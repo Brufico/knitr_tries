@@ -2,15 +2,24 @@
 title: "Pdf (Latex) tries"
 subtitle : "Une sorte d'exploration pour utiliser un template."
 author: BFC
+abstract: "This is just an experiment on formatting with a new template"
 documentclass: article
 # classoption: a4paper
-header-includes: \usepackage{float}\usepackage{graphicx}\usepackage{titling}\usepackage{fancyhdr}\pagestyle{fancy} \fancyfoot[C]{\thetitle \ \textemdash \ page \thepage}
-# footer:  \thetitle \ \textemdash \ \thepage
+# header-includes: \usepackage{fancyhdr}\pagestyle{fancy} \fancyfoot[C]{\thetitle \ \textemdash \ page \thepage}
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+# - \fancyhead[CO,CE]{This is fancy header}
+# - \fancyfoot[C]{\thetitle \ \textemdash \ \thepage}
+- \fancyfoot[CE,CO]{\thetitle}
+- \fancyfoot[LE,RO]{\thepage}
+
+# footer:  "\\thetitle \\ \\textemdash \\ \\thepage"
 output: 
     pdf_document:
       number_section: yes
       toc: yes
-      template: ptemplate2.tex
+      template: common/ptemplate3.tex
 urlcolor: blue
 fontsize: 12pt
 geometry: "a4paper, left=2cm,right=2cm,top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm"
@@ -23,7 +32,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ************************
 
-![](common/logoipag.jpg){width=100px}kj
+![](common/logoipag.jpg){width=100px}
+
 
 ************************
 
