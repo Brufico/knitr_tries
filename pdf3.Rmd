@@ -10,25 +10,30 @@ abstract: |
     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING
     
 documentclass: article
+papersize: a4
 # classoption: a4paper
 # header-includes: \usepackage{fancyhdr}\pagestyle{fancy} \fancyfoot[C]{\thetitle \ \textemdash \ page \thepage}
-header-includes:
-- \usepackage{fancyhdr}
-- \pagestyle{fancy}
-- \fancyfoot[CE,CO]{\theauthor \ --\ \thedoctitle} # thetitle ne marche pas et donne le n0 de section
-- \fancyfoot[LE, RO]{\thepage}
+# header-includes:
+# - \usepackage{fancyhdr}
+# - \pagestyle{fancy}
+# - \fancyfoot[CE,CO]{\theauthor \ --\ \thedoctitle} # thetitle ne marche pas et donne le n0 de section
+# - \fancyfoot[LE, RO]{\thepage}
 
-# footer: yes #????
+footer: \theauthor \ --\ \thedoctitle \ --\ page\ \thepage #????
 babel: english # francais # english
 output: 
     pdf_document:
       number_section: yes
       toc: yes
-      template: common/ptemplate3.tex
+      template: ./common/ptemplate3.tex
 urlcolor: blue
-fontfamily: mathpazo
+font-family:
+# font-family: "Arial"
+# mainfont: Helvetica
+
 fontsize: 12pt
-geometry: "a4paper, left=2.2cm,right=2.2cm,top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm"
+# a4paper, 
+geometry: "left=2.2cm,right=2.2cm,top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm"
 subparagraph: yes  # nécessaire avec titlesec sinon erreur avec paragraph et subparagraph
 ---
 
