@@ -1,7 +1,13 @@
 ---
-title: "Pdf (Latex) tries"
-subtitle : "Une sorte d'exploration pour utiliser un template."
-author: Bruno Fischer Colonimos
+title: "Pdf (Latex) tries for using a template"
+shorttitle: no
+subtitle : "Une sorte d'exploration pour comprendre et utiliser un template"
+author: 
+- Bruno Fischer Colonimos
+- Aristote, Bruno
+- Brufico, FischerCol
+shortauthor: Bruno et al.
+
 abstract: |
     This is just an experiment on formatting with a new template.  
     I would certainly drag it for a long time, in order to cover many lines. But it will certainly be BORING,
@@ -11,6 +17,15 @@ abstract: |
     
 documentclass: article
 papersize: a4
+fontsize: 12pt
+
+lang: fr # en = english, fr = français
+toc_sommaire: true # si lang = fr et si la table est au début du doc, yes u true
+# nom de la table = "Sommaire"
+
+debug_var: true # pour afficher les variables dans le texte
+# lang: english # francais # english ********************This is the problem
+
 # classoption: a4paper
 # header-includes: \usepackage{fancyhdr}\pagestyle{fancy} \fancyfoot[C]{\thetitle \ \textemdash \ page \thepage}
 # header-includes:
@@ -19,19 +34,19 @@ papersize: a4
 # - \fancyfoot[CE,CO]{\theauthor \ --\ \thedoctitle} # thetitle ne marche pas et donne le n0 de section
 # - \fancyfoot[LE, RO]{\thepage}
 
-footer: \theauthor \ --\ \thedoctitle \ --\ page\ \thepage #????
-babel: english # francais # english
+footer: \theshortauthor \ --\ \theshorttitle \ --\ page\ \thepage #????
+# babel: english # francais # english
 output: 
     pdf_document:
       number_section: yes
       toc: yes
       template: ./common/ptemplate3.tex
 urlcolor: blue
-font-family:
+# font-family:
 # font-family: "Arial"
 # mainfont: Helvetica
 
-fontsize: 12pt
+
 # a4paper, 
 geometry: "left=2.2cm,right=2.2cm,top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm"
 subparagraph: yes  # nécessaire avec titlesec sinon erreur avec paragraph et subparagraph

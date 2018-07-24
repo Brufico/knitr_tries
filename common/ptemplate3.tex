@@ -61,7 +61,7 @@ $endif$
 $if(footer)$
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-% \fancyhf{}
+% \fancyhf{} % neutralisé BFC
 \renewcommand{\headrulewidth}{0.5pt} % no header decorative line % changed 0 to 0.5 BFC
 \renewcommand{\footrulewidth}{0.5pt} % footer decorative line
 % \cfoot{Page \thepage}
@@ -93,6 +93,8 @@ $else$
 $endif$
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+
+% if lang ------------------------
 $if(lang)$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
@@ -256,7 +258,16 @@ $endfor$
 % my additions 
 
 \def \thedoctitle {$title$}
+\def \theshorttitle {$if(shorttitle)$
+                        $shorttitle$
+                        $else$
+                        $title$
+                        $endif$ }
 
+\def \theshortauthor {$if(shortauthor)$
+                        $shortauthor$
+                        $else$$author$
+                        $endif$ }
 %(redef sections)
 
 % \makeatletter
@@ -299,10 +310,10 @@ $endfor$
 \titlespacing\paragraph{0pt}{*2}{*1}
 \titlespacing\subparagraph{20pt}{*.6}{*0}
 
-% changer le nom de la table des matières (content)
+% changer le nom de la table des matières (content) si lang = français
 % \renewcommand*\contentsname{Table}
 % \usepackage[francais]{babel} 
-\usepackage[$babel$]{babel} % enlevér? BFC 
+% \usepackage[$babel$]{babel} % enlevér? BFC 
 %% \renewcommand{\contentsname}{Sommaire} % renommer le sommaire : ne fonctionna pas ici
 % intégration des packages dans le template 
 \usepackage{float}
@@ -313,7 +324,6 @@ $endfor$
 %=====================================================================================
 
 \begin{document}
-
 
 
 $if(title)$
@@ -346,8 +356,11 @@ $endif$
 \setcounter{tocdepth}{$toc-depth$}
 
 % traduction === trouver la condition !!!!!
-\ifthenelse{\equal{$babel$}{francais}}
-{\renewcommand{\contentsname}{Sommaire}}
+% \ifthenelse{\equal{$babel$}{francais}}
+\ifthenelse{\equal{$lang$}{fr}}
+        {\ifthenelse{\equal{$toc_sommaire$}{true}}
+                {\renewcommand{\contentsname}{Sommaire}}
+        { }
 {}
 % traduction ==
 \tableofcontents
@@ -360,6 +373,73 @@ $endif$
 $if(lof)$
 \listoffigures
 $endif$
+
+% ======================== debugging variables ===============================
+
+\ifthenelse {\equal{$debug_var$}{true}}
+{Debugging variable values: 
+
+\textbf{Pandoc variables}
+
+\begin{itemize}
+        \item sourcefile -- $sourcefile$
+        \item outputfile -- $outputfile$
+        \item title -- $title$
+        \item author -- $author$ %could be multiple
+        \item date -- $date$
+        \item subtitle -- $subtitle$
+        \item institute -- $institute$
+        \item header-includes -- $header-includes$
+        \item toc -- $toc$
+        \item toc-title -- $toc-title$ %works only with EPUB, opendocument, odt, docx, pptx
+        \item include-before, include-after, body, meta-json
+\end{itemize}
+
+
+\textbf{Language variables}
+\begin{itemize}
+        \item lang -- $lang$
+        \item textbf{auto + custom}
+        \begin{itemize}
+                \item toc-sommaire: $toc_sommaire$
+                \item babel-lang: $babel-lang$
+                \item babel-otherlangs: $babel-otherlangs$
+        \end{itemize}
+        
+        \item dir -- $dir$ %the base direction of the document, either rtl (right-to-left) or ltr (left-to-right).
+\end{itemize}
+
+
+\textbf{Latex Variables}
+\begin{itemize}
+        \item papersize -- $papersize$
+        \item fontsize -- $fontsize$
+        \item documentclass -- $documentclass$
+        \item classoption -- $classoption$
+        \item beameroption -- $beameroption$
+        \item geometry -- $geometry$
+        \item margin-left, margin-right, margin-top, margin-bottom % if geometry is not used
+        \item linestretch -- §linestretch§
+        \item fontfamily -- $fontfamily$
+        \item fontfamilyoptions -- $fontfamilyoptions$
+        \item mainfont, sansfont, monofont, mathfont, CJKmainfont
+        \item mainfontoptions, sansfontoptions, monofontoptions, mathfontoptions, CJKoptions (lualatex, xelatex)
+        \item fontenc -- $fontenc$
+        \item microtypeoptions (microtype package)
+        \item colorlinks -- $colorlinks$
+        \item linkcolor -- $linkcolor$ (internal)
+        \item citecolor -- $citecolor$ (citation)
+        \item urlcolor -- $urlcolor$ (external)
+        \item toccolor -- $toccolor$n (toc)
+        \item links-as-notes --$links-as-notes$
+        \item indent --$indent$
+        \item subparagraph --$subparagraph$
+
+        
+\end{itemize}
+} % end if clause
+{} %else nothing
+
 
 % body of the text
 $body$
