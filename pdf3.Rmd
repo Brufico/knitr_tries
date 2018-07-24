@@ -20,10 +20,10 @@ papersize: a4
 fontsize: 12pt
 
 lang: fr # en = english, fr = français
-toc_sommaire: true # si lang = fr et si la table est au début du doc, yes u true
+toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes u true
 # nom de la table = "Sommaire"
 
-debug_var: true # pour afficher les variables dans le texte
+debug_var: yes # pour afficher les variables dans le texte
 # lang: english # francais # english ********************This is the problem
 
 # classoption: a4paper
@@ -36,6 +36,7 @@ debug_var: true # pour afficher les variables dans le texte
 
 footer: \theshortauthor \ --\ \theshorttitle \ --\ page\ \thepage #????
 # babel: english # francais # english
+# secnumdepth: 4
 output: 
     pdf_document:
       number_section: yes

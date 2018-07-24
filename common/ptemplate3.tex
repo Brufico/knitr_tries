@@ -358,7 +358,7 @@ $endif$
 % traduction === trouver la condition !!!!!
 % \ifthenelse{\equal{$babel$}{francais}}
 \ifthenelse{\equal{$lang$}{fr}}
-        {\ifthenelse{\equal{$toc_sommaire$}{true}}
+        {\ifthenelse{\equal{$toc-sommaire$}{true}}
                 {\renewcommand{\contentsname}{Sommaire}}
         { }
 {}
@@ -401,7 +401,7 @@ $endif$
         \item lang -- $lang$
         \item textbf{auto + custom}
         \begin{itemize}
-                \item toc-sommaire: $toc_sommaire$
+                \item toc-sommaire: $toc-sommaire$
                 \item babel-lang: $babel-lang$
                 \item babel-otherlangs: $babel-otherlangs$
         \end{itemize}
@@ -432,11 +432,30 @@ $endif$
         \item urlcolor -- $urlcolor$ (external)
         \item toccolor -- $toccolor$n (toc)
         \item links-as-notes --$links-as-notes$
-        \item indent --$indent$
+        \item indent -- $indent$
         \item subparagraph --$subparagraph$
-
-        
+        \item thanks -- $thanks$
+        \item toc -- $toc$
+        \item toc-depth -- $toc-depth$
+        \item secnumdepth -- $secnumdepth$
+        \item lof -- $lof$
+        \item lot -- $lot$
+        \item bibliography -- $bibliography$
+        \item biblio-style -- $biblio-style$
+        \item biblio-title -- $biblio-title$
+        \item biblatexoptions -- $biblatexoptions$
+        \item natbiboptions -- $natbiboptions$
+        \item pagestyle -- $pagestyle$
 \end{itemize}
+
+\textbf{Custom variables}
+
+\begin{itemize}
+        \item shorttitle -- $shorttitle$
+        \item shortauthor -- $shortauthor$
+        \item toc-sommaire -- $toc-sommaire$
+\end{itemize}
+
 } % end if clause
 {} %else nothing
 
