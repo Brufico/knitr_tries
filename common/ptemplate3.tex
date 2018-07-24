@@ -54,10 +54,8 @@ $endif$
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
-% $if(geometry)$
-% \usepackage[geometry]{geometry}
-% $endif$
-% ****  modif: footer mystery here !!!!!!!!!!!!!!
+
+% footer + header
 $if(footer)$
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -69,6 +67,7 @@ $if(footer)$
 \fancyfoot[C]{$footer$}
 $endif$
 % ****  end modif: footer
+
 \usepackage{hyperref}
 $if(colorlinks)$
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
