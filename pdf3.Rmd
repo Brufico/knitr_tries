@@ -7,13 +7,13 @@ author:
 - Aristote, Bruno
 - Brufico, FischerCol
 shortauthor: Bruno et al.
-institute: Ipag, www.ipag.fr 
+institute: Ipag, http://www.ipag.fr 
 abstract: |
     This is just an experiment on formatting with a new template.  
     I would certainly drag it for a long time, in order to cover many lines. But it will certainly be BORING,
     
     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING  
-    BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING. link = www.ipag.fr
+    BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING. link = http:/www.ipag.fr
     
 documentclass: article
 papersize: a4
@@ -24,19 +24,11 @@ toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes u true
 # nom de la table = "Sommaire"
 
 debug_var: yes # pour afficher les variables dans le texte
-# lang: english # francais # english ********************This is the problem
 
-# classoption: a4paper
-# header-includes: \usepackage{fancyhdr}\pagestyle{fancy} \fancyfoot[C]{\thetitle \ \textemdash \ page \thepage}
-# header-includes:
-# - \usepackage{fancyhdr}
-# - \pagestyle{fancy}
-# - \fancyfoot[CE,CO]{\theauthor \ --\ \thedoctitle} # thetitle ne marche pas et donne le n0 de section
-# - \fancyfoot[LE, RO]{\thepage}
 
 footer: \theshortauthor \ --\ \theshorttitle \ --\ page\ \thepage #????
 # babel: english # francais # english
-# secnumdepth: 4
+secnumdepth: 2
 output: 
     pdf_document:
       toc: yes            
@@ -49,9 +41,7 @@ toccolor: "red"
 # font-family: "Arial"
 # mainfont: Helvetica
 
-
-# a4paper, 
-geometry: "left=2.2cm,right=2.2cm,top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm"
+geometry: "left=2.2cm,right=2.2cm,top=2.2cm,bottom=2cm,headheight=15pt,headsep=0.5cm,footskip=1cm"
 subparagraph: yes  # nécessaire avec titlesec sinon erreur avec paragraph et subp
 ---
 
@@ -64,7 +54,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.pos = "H")
 Lorem ipsum{#lorem} 
 ===========
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.(http://www.ipag.fr)
 
 Vivamus{-}
 -------

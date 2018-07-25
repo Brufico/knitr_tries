@@ -345,8 +345,10 @@ $endif$
 
 $for(include-before)$
 $include-before$
-
 $endfor$
+
+% ===============toc
+
 $if(toc)$
 {
 $if(colorlinks)$
@@ -354,17 +356,20 @@ $if(colorlinks)$
 $endif$
 \setcounter{tocdepth}{$toc-depth$}
 
-% traduction === trouver la condition !!!!!
+% traduction titre de la table ===(si francais, sommaire si au début)
 % \ifthenelse{\equal{$babel$}{francais}}
 \ifthenelse{\equal{$lang$}{fr}}
         {\ifthenelse{\equal{$toc-sommaire$}{true}}
-                {\renewcommand{\contentsname}{Sommaire}}
+                {\renewcommand{\contentsname}{Sommaire}}} %!!!!!!
         { }
 {}
-% traduction ==
+
+% fin traduction =======================================
 \tableofcontents
 }
 $endif$
+
+
 $if(lot)$
 \listoftables
 $endif$
@@ -376,7 +381,14 @@ $endif$
 % ======================== debugging variables ===============================
 
 \ifthenelse {\equal{$debug_var$}{true}}
-{Debugging variable values: 
+{
+\begin{centering}
+\rule{2in}{0.4pt} 
+
+\Large{\textbf{Debugging : variable values}}
+
+\end{centering}
+
 
 \textbf{Pandoc variables}
 
@@ -398,13 +410,12 @@ $endif$
 \textbf{Language variables}
 \begin{itemize}
         \item lang -- $lang$
-        \item textbf{auto + custom}
+        \item textbf{auto + custom variables}
         \begin{itemize}
-                \item toc-sommaire: $toc-sommaire$
-                \item babel-lang: $babel-lang$
-                \item babel-otherlangs: $babel-otherlangs$
+                \item toc-sommaire -- $toc-sommaire$
+                \item babel-lang -- $babel-lang$
+                \item babel-otherlangs -- $babel-otherlangs$
         \end{itemize}
-        
         \item dir -- $dir$ %the base direction of the document, either rtl (right-to-left) or ltr (left-to-right).
 \end{itemize}
 
@@ -457,6 +468,8 @@ $endif$
 
 } % end if clause
 {} %else nothing
+
+% ======================== end debugging variables =========================
 
 
 % body of the text
