@@ -19,27 +19,28 @@ abstract: |
 documentclass: article
 papersize: a4
 fontsize: 12pt
+# linestretch: 1.5 # missing package setspace ?? setspace.sty
 
-lang: fr # en = english, fr = français
+lang: en # en = english, fr = français, de = Deutsch
 toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes u true
 # nom de la table = "Sommaire"
 
 debug_var: no # pour afficher les variables dans le texte
 
 
-footer: \theshortauthor \ --\ \theshorttitle \ --\ page\ \thepage #????
+footer: \theshortauthor \ --\ \theshorttitle \ --\ page\ \thepage #mod template
 # babel: english # francais # english
 secnumdepth: 2
 output: 
     pdf_document:
       toc: yes            
-      number_section: true
+      number_section: yes
       template: ./common/ptemplate3.tex
 urlcolor: "blue"
 linkcolor: "red"
 toccolor: "Maroon"
-# font-family:
-# font-family: "Arial"
+# fontfamily: mathpazo #works but effect = ?
+# fontfamily: sf #no
 # mainfont: Helvetica
 
 geometry: "left=2.2cm,right=2.2cm,top=2.2cm,bottom=2cm,headheight=15pt,headsep=0.5cm,footskip=1cm"
