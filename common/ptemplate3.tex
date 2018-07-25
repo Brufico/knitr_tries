@@ -55,12 +55,12 @@ $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 
-% footer + header
+% modif footer + header ********
 $if(footer)$
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 % \fancyhf{} % neutralisé BFC
-\renewcommand{\headrulewidth}{0.5pt} % no header decorative line % changed 0 to 0.5 BFC
+\renewcommand{\headrulewidth}{0.5pt} % /no/ header decorative line % changed 0 to 0.5 BFC
 \renewcommand{\footrulewidth}{0.5pt} % footer decorative line
 % \cfoot{Page \thepage}
 %\cfoot{$footer$}
@@ -253,8 +253,8 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-% ====================================================================================
-% my additions 
+% === my additions ===============================================================
+%  
 
 \def \thedoctitle {$title$}
 \def \theshorttitle {$if(shorttitle)$
@@ -320,7 +320,7 @@ $endfor$
 
 
 
-%=====================================================================================
+%=document ======================================================================
 
 \begin{document}
 
@@ -369,6 +369,7 @@ $endif$
 }
 $endif$
 
+% ===============fin toc
 
 $if(lot)$
 \listoftables
@@ -465,6 +466,15 @@ $endif$
         \item shortauthor -- $shortauthor$
         \item toc-sommaire -- $toc-sommaire$
 \end{itemize}
+
+
+\textbf{more unknown auto variables}
+
+\begin{itemize}
+        \item title-meta -- $title-meta$
+        \item author-meta -- $author-meta$
+\end{itemize}
+
 
 } % end if clause
 {} %else nothing
