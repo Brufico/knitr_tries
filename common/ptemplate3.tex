@@ -195,10 +195,26 @@ $endif$
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-  
+
+% Using package ifthen
+\usepackage{ifthen}
+
 % numbersections -------------
+% setting max depth first (BFC), used or not
+\newcounter{maxsecnumdepth}
+\setcounter{maxsecnumdepth}{5}
+
+$if(secnumdepth)$
+\ifthenelse {$secnumdepth$<5}
+{\setcounter{maxsecnumdepth}{$secnumdepth$}}
+{\setcounter{maxsecnumdepth}{5}}
+$else$
+\setcounter{maxsecnumdepth}{5}
+$endif$
+
 $if(numbersections)$
-\setcounter{secnumdepth}{5}
+% \setcounter{secnumdepth}{5} %original
+\setcounter{secnumdepth}{\themaxsecnumdepth} %modified BFC
 $else$
 \setcounter{secnumdepth}{0}
 $endif$
@@ -347,7 +363,7 @@ $endfor$
 %% \renewcommand{\contentsname}{Sommaire} % renommer le sommaire : ne fonctionna pas ici
 % intégration des packages dans le template 
 \usepackage{float}
-\usepackage{ifthen}
+% \usepackage{ifthen}
 
 
 

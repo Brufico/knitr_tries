@@ -30,11 +30,14 @@ debug_var: no # pour afficher les variables dans le texte
 
 footer: \theshortauthor \ --\ \theshorttitle \ --\ page\ \thepage #mod template
 # babel: english # francais # english
-secnumdepth: 2
+
+secnumdepth: 4
+toc-depth: 5
+
 output: 
     pdf_document:
-      toc: yes            
-      number_section: yes
+      toc: yes
+      number_section: no
       template: ./common/ptemplate3.tex
 urlcolor: "blue"
 linkcolor: "red"
@@ -81,7 +84,7 @@ Nunc ac magna. Maecenas odio dolor, vulputate vel, auctor ac, accumsan id, felis
 #### Pellentesque cursus
 Pellentesque cursus sagittis felis.
 
-##### Vivamus{-}  
+##### Vivamus
 \ a mi. Fusce in sapien eu purus dapibus commodo. 
 
 ##### Morbi
