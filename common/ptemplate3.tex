@@ -395,7 +395,7 @@ $endfor$
 % 								  
 % \makeatother
 
-\usepackage{titlesec}
+% \usepackage{titlesec}
 
 % \titlespacing\section{0pt}{40pt plus 10pt minus 2pt}{23pt plus 2pt minus 2pt}
 % \titlespacing\subsection{0pt}{35pt plus 10pt minus 2pt}{10pt plus 2pt minus 2pt}
@@ -404,6 +404,7 @@ $endfor$
 % \titlespacing\subparagraph{0pt}{6pt plus 1pt minus 1pt}{2pt plus 1pt minus 1pt}
 
 $if(secspace)$
+\usepackage{titlesec}
 $for(secspace)$
 \titlespacing\$secspace.level${$secspace.front$}{*$secspace.up$}{*$secspace.down$}
 $endfor$
@@ -425,7 +426,7 @@ $endif$
 
 
 
-%=document ======================================================================
+% document ======================================================================
 
 \begin{document}
 

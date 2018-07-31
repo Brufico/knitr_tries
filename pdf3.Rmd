@@ -67,7 +67,8 @@ toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes ou tru
 # --------
 debug_var: no # ves/no pour afficher les variables au début du texte
 
-# pied de page
+# pied de page (un en-tête de page sera automatique si footer est défini)
+# -----------
 footer: \shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
 # REM shortauthor ne fonctionnera que si shortauthor ou author sont définis
 
@@ -88,37 +89,47 @@ urlcolor: "blue"
 linkcolor: "red"
 toccolor: "Maroon"
 
+# polices (problematique)
+# -------
 # fontfamily: mathpazo #works but effect = ?
 # fontfamily: sf #no
 # mainfont: Helvetica
 
 geometry: "left=2.2cm,right=2.2cm,top=2.2cm,bottom=2cm,headheight=15pt,headsep=0.5cm,footskip=1cm"
 
-#  Re-espacement des titres (avec titlesec)
+# Re-espacement des titres (avec titlesec)
+# ----------------------------------------
+subparagraph: no  # si secspace: yes nécessaire avec titlesec sinon erreur avec paragraph et subp
 
-subparagraph: yes  # nécessaire avec titlesec sinon erreur avec paragraph et subp
+# modification de l'espacement des titres de sections
+# ---------------------------------------------------
 
-secspace:
-- level: section
-  front: -20pt
-  up: 4
-  down: 2.3
-- level: subsection
-  front: -20pt
-  up: 3.5
-  down: 1.5
-- level: subsubsection
-  front: -20pt
-  up: 3
-  down: 1
-  
-# spacesubsection: "{-20pt}{*3.5}{*1.5}"
-# spacesubsubsection: "{-20pt}{*3}{*1}"
-# spaceparagraph: "{0pt}{*2}{*1}"
-# spacesubparagraph: "{20pt}{*.6}{*0}"
+# secspace: 
+# - level: section
+#   front: -20pt
+#   up: 4
+#   down: 2.3
+# - level: subsection
+#   front: -20pt
+#   up: 3.5
+#   down: 1.5
+# - level: subsubsection
+#   front: -20pt
+#   up: 3
+#   down: 1
+# - level: paragraph
+#   front: 0pt
+#   up: 2
+#   down: 1  
+# - level: subparagraph
+#   front: 20pt
+#   up: .6
+#   down: 0  
+
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE, fig.pos = "H")
 ```
 
@@ -132,12 +143,19 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor con
 Vivamus{-}
 -------
 Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
-$$F_\psi(x_i) = e^x \cdot \int_{i}^{x} \frac{t^{3^\beta}}{2\psi(i)} \,\mathrm{dt}$$
+$$F_\psi(x_i) = e^x \cdot \int_{i}^{x} \frac{t^{3^{\beta}}}{2\psi(i)} \,\mathrm{dt}$$
 
 Porttitor
 ---------
 In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
 Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla. Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod, purus ipsum pretium metus, in lacinia nulla nisl eget sapien.
+
+```{r graphe}
+library(UsingR)
+data("galton")
+
+```
+
 
 Donec
 -----
