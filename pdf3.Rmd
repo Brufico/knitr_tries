@@ -5,10 +5,19 @@ subtitle : "Une sorte d'exploration pour comprendre et utiliser un template"
 author: 
 - Bruno Fischer Colonimos
 - Aristote, Bruno
-- Brufico, FischerCol
+- Bruno, Giordano
+
+
+
+
 shortauthor: Bruno et al.
-institute: Ipag, http://www.ipag.fr 
-date: "`r format(Sys.Date(), '%d %B %Y')`"
+
+date: "`r paste0('Revision: 26 juillet 2018, edition: ',  format(Sys.Date(), '%d %B %Y') )`"
+
+logo: yes
+logopath: common/logoipag #extension omitted
+logowidth: 50pt
+
 abstract: |
     This is just an experiment on formatting with a new template.  
     I would certainly drag it for a long time, in order to cover many lines. But it will certainly be BORING,
@@ -25,19 +34,19 @@ lang: en # en = english, fr = français, de = Deutsch
 toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes u true
 # nom de la table = "Sommaire"
 
-debug_var: no # pour afficher les variables dans le texte
+debug_var: yes # pour afficher les variables dans le texte
 
 
 footer: \theshortauthor \ --\ \theshorttitle \ --\ page\ \thepage #mod template
 # babel: english # francais # english
 
-secnumdepth: 4
-toc-depth: 5
+# secnumdepth: 3
+toc-depth: 3
 
 output: 
     pdf_document:
       toc: yes
-      number_section: no
+      number_section: yes
       template: ./common/ptemplate3.tex
 urlcolor: "blue"
 linkcolor: "red"
@@ -63,7 +72,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor con
 
 Vivamus{-}
 -------
-Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.
+Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
 
 Porttitor
 ---------
@@ -81,7 +90,7 @@ Quisque aliquam tempor magna. Pellentesque habitant morbi tristique senectus et 
 #### Nunc
 Nunc ac magna. Maecenas odio dolor, vulputate vel, auctor ac, accumsan id, felis.
 
-#### Pellentesque cursus
+#### Pellentesque cursus{#pc}
 Pellentesque cursus sagittis felis.
 
 ##### Vivamus
@@ -105,7 +114,13 @@ Integer ultrices lobortis eros {#Integer}
 ==============================
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin semper, ante vitae sollicitudin posuere, metus quam iaculis nibh, vitae scelerisque nunc massa eget pede. Sed velit urna, interdum vel, ultricies vel, faucibus at, quam. Donec elit est, consectetuer eget, consequat quis, tempus quis, wisi.
-In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Donec ullamcorper fringilla eros. Fusce in sapien eu purus dapibus commodo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Donec ullamcorper fringilla eros. Fusce in sapien eu purus dapibus commodo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.(see [This address][mylabel1] or [that address][mylabel3] or [thisdoc][thisdoc_pc])
 
 Cras faucibus condimentum odio. Sed ac ligula. Aliquam at eros. Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. (see [Lorem](#lorem) )
+
+[mylabel1]: /foo/bar.html  "My title, optional"
+[mylabel2]: /foo
+[mylabel3]: http://fsf.org (The free software foundation)
+[mylabel4]: /bar#special  'A title in single quotes'
+[thisdoc_pc]: #pc
 

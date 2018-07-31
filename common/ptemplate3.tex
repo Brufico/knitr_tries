@@ -199,8 +199,8 @@ $endif$
 % Using package ifthen
 \usepackage{ifthen}
 
-% numbersections -------------
-% setting max depth first (BFC), used or not
+% numbersections originally modified, works but strange -------------
+% setting max depth first (BFC), used or not (as a counter: strange)
 \newcounter{maxsecnumdepth}
 \setcounter{maxsecnumdepth}{5}
 
@@ -218,6 +218,30 @@ $if(numbersections)$
 $else$
 \setcounter{secnumdepth}{0}
 $endif$
+
+% numbersections attempt 2 ------------- ?????????????
+% 
+%  % setting max depth first (BFC), used or not, with a command
+% $if(secnumdepth)$
+% % \newcommand{\maxsecnumdepth}{\ifthenelse {$secnumdepth$<5}{$secnumdepth$}{5} }
+% % maxsecnumdepth=$secnumdepth$
+% \def\maxdepth{\ifthenelse{$secnumdepth$<5}{$secnumdepth$}{5}}
+% $else$
+% % \newcommand{\maxsecnumdepth}{5}
+% % maxsecnumdepth=5
+% \def\maxdepth{5}
+% $endif$
+% 
+% 
+% $if(numbersections)$
+% % \setcounter{secnumdepth}{5} %original
+% % \setcounter{secnumdepth}{\maxsecnumdepth} %Does NOT work here (missing number error)
+% \setcounter{secnumdepth}{\maxdepth} %Does NOT work here (missing number error)
+% $else$
+% \setcounter{secnumdepth}{0}
+% $endif$
+
+% end numbersections -------------
 
 % subparagraph -------------
 $if(subparagraph)$
@@ -361,6 +385,7 @@ $endfor$
 % \usepackage[francais]{babel} 
 % \usepackage[$babel$]{babel} % enlevér? BFC 
 %% \renewcommand{\contentsname}{Sommaire} % renommer le sommaire : ne fonctionna pas ici
+
 % intégration des packages dans le template 
 \usepackage{float}
 % \usepackage{ifthen}
@@ -376,12 +401,26 @@ $if(title)$
 \maketitle
 $endif$
 
+% % added logo. does work here, after the title
+% \begin{figure}[H]
+% \centering
+% % \includegraphics[width=100pt]{common/logoipag}
+% \includegraphics[width=100pt]{common/logoipag}
+% \end{figure}
+
 % added logo. does work here, after the title
+$if(logo)$
+$if(logopath)$
+$if(logowidth)$
 \begin{figure}[H]
 \centering
-\includegraphics[width=100pt]{common/logoipag}
+% \includegraphics[width=100pt]{common/logoipag}
+\includegraphics[width=$logowidth$]{$logopath$}
 \end{figure}
 
+$endif$
+$endif$
+$endif$
 
 $if(abstract)$
 \begin{abstract}
@@ -425,6 +464,7 @@ $endif$
 $if(lof)$
 \listoffigures
 $endif$
+
 
 % ======================== debugging variables ===============================
 
@@ -488,7 +528,7 @@ $endif$
         \item linkcolor -- $linkcolor$ (internal)
         \item citecolor -- $citecolor$ (citation)
         \item urlcolor -- $urlcolor$ (external)
-        \item toccolor -- $toccolor$n (toc)
+        \item toccolor -- $toccolor$ (toc)
         \item links-as-notes --$links-as-notes$
         \item indent -- $indent$
         \item subparagraph --$subparagraph$
