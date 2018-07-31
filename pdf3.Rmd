@@ -9,7 +9,7 @@ author:
 - Aristote, Bruno
 - Bruno, Giordano
 
-# si la section authordetails est présente, la section author est désactivée
+# si la section authordetails est présente, la section author n'est pas utilisée
 authordetails: 
 - name: Bruno Fischer Colonimos
   affiliation: University of Somewhere
@@ -45,6 +45,10 @@ abstract: |
     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING  
     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING. link = http:/www.ipag.fr
 
+
+# paramètre d'output
+# ==================
+
 # paramètres généraux    
 documentclass: article
 papersize: a4
@@ -60,8 +64,8 @@ toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes ou tru
 debug_var: no # ves/no pour afficher les variables au début du texte
 
 
-footer: \theshortauthor \ --\ \theshorttitle \ --\ page\ \thepage #mod template
-# babel: english # francais # english
+footer: \shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
+# REM shortauthor ne fonctionnera que si shortauthor ou author sont définis
 
 secnumdepth: 4 # profondeur de numérotation des titres de section
 toc-depth: 3 # profondeur de la table/sommaire
@@ -97,7 +101,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor con
 Vivamus{-}
 -------
 Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
-$$F_\psi(x_i) = e^x \cdot \int_i^x{\frac{t^{3^\beta}}{2\psi(i)}\ dt}$$
+$$F_\psi(x_i) = e^x \cdot \int_{i}^{x} \frac{t^{3^\beta}}{2\psi(i)} \,\mathrm{dt}$$
 
 Porttitor
 ---------

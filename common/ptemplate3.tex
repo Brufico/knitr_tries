@@ -356,14 +356,14 @@ $endfor$
 % === my additions ===============================================================
 %  
 
-\def \thedoctitle {$title$}
-\def \theshorttitle {$if(shorttitle)$
+% \def \doctitle {$title$}
+\def \shorttitle {$if(shorttitle)$
                         $shorttitle$
                         $else$
                         $title$
                         $endif$ }
 
-\def \theshortauthor {$if(shortauthor)$
+\def \shortauthor {$if(shortauthor)$
                         $shortauthor$
                         $else$$author$
                         $endif$ }
@@ -409,11 +409,8 @@ $endfor$
 \titlespacing\paragraph{0pt}{*2}{*1}
 \titlespacing\subparagraph{20pt}{*.6}{*0}
 
-% changer le nom de la table des matières (content) si lang = français
-% \renewcommand*\contentsname{Table}
-% \usepackage[francais]{babel} 
-% \usepackage[$babel$]{babel} % enlevér? BFC 
-%% \renewcommand{\contentsname}{Sommaire} % renommer le sommaire : ne fonctionna pas ici
+
+
 
 % intégration des packages dans le template 
 \usepackage{float}
