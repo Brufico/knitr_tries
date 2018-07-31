@@ -290,6 +290,7 @@ $endif$
     }
 }
 
+% title ========
 \setlength{\droptitle}{-2em}
 $if(title)$
   \title{$title$}
@@ -303,6 +304,29 @@ $endif$
 $if(subtitle)$
 \subtitle{$subtitle$}
 $endif$
+
+% author /authors ==========
+% definition du séparateur d'item dans la liste détaillée des auteurs
+\newcommand{\authorsep}{$if(authorsep)$$authorsep$$else$ -- $endif$}
+
+$if(authordetails)$
+  \author{$for(authordetails)$
+            $if(authordetails.name)$
+                $authordetails.name$
+                $if(authordetails.affiliation)$
+                \authorsep $authordetails.affiliation$
+                $endif$
+                $if(authordetails.email)$
+                \authorsep $authordetails.email$
+                $endif$
+                \\
+            $endif$
+           $endfor$}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par\vspace{1em}}
+$else$
+
+% original
 $if(author)$
   \author{$for(author)$$author$$sep$ \\ $endfor$}
   \preauthor{\centering\large\emph}
@@ -311,6 +335,11 @@ $else$
   \author{}
   \preauthor{}\postauthor{}
 $endif$
+ 
+$endif$
+
+% end author /authors ==========
+
 $if(date)$
   \predate{\centering\large\emph}
   \postdate{\par}

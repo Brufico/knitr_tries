@@ -2,46 +2,69 @@
 title: "Pdf (Latex) tries for using a template"
 shorttitle: "Pdf-Template usage"
 subtitle : "Une sorte d'exploration pour comprendre et utiliser un template"
-author: 
+
+# Authors and detailed list of authors -------
+author:
 - Bruno Fischer Colonimos
 - Aristote, Bruno
 - Bruno, Giordano
 
+# si la section authordetails est présente, la section author est désactivée
+authordetails: 
+- name: Bruno Fischer Colonimos
+  affiliation: University of Somewhere
+  email: br.fischer@ipag.fr
+- name: Aristote, Bruno
+  affiliation: University of Nowhere
+- name: Bruno, Giordano
+  # affiliation: University of Anywhere
+- name: Ahmed Bruno
+  email: ahmed.bruno@ipag.fr
+
+# authorsep: " ; " # optional separator for detailed list (default is ' -- ')
+
+shortauthor: Bruno et al. # pour l'affichage de noms d'auteurs dans le pied de page
 
 
+# date et/ou date détaillée -------
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+# date: "`r paste0('Revision: 31 juillet 2018, edition: ',  format(Sys.Date(), '%d %B %Y') )`"
 
-shortauthor: Bruno et al.
-
-date: "`r paste0('Revision: 26 juillet 2018, edition: ',  format(Sys.Date(), '%d %B %Y') )`"
-
+# inclusion d'un logo après le titre
 logo: yes
 logopath: common/logoipag #extension omitted
 logowidth: 50pt
 
+# résumé
 abstract: |
+    Ceci est un résumé multi-paragraphes\
     This is just an experiment on formatting with a new template.  
+    
     I would certainly drag it for a long time, in order to cover many lines. But it will certainly be BORING,
     
     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING  
     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING. link = http:/www.ipag.fr
-    
+
+# paramètres généraux    
 documentclass: article
 papersize: a4
 fontsize: 12pt
-# linestretch: 1.5 # missing package setspace ?? setspace.sty
+## pour varier l'interligne
+# linestretch: 1.5 # missing package setspace ?? setspace.sty 
 
+# Langue
 lang: en # en = english, fr = français, de = Deutsch
-toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes u true
+toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes ou true
 # nom de la table = "Sommaire"
 
-debug_var: yes # pour afficher les variables dans le texte
+debug_var: no # ves/no pour afficher les variables au début du texte
 
 
 footer: \theshortauthor \ --\ \theshorttitle \ --\ page\ \thepage #mod template
 # babel: english # francais # english
 
-# secnumdepth: 3
-toc-depth: 3
+secnumdepth: 4 # profondeur de numérotation des titres de section
+toc-depth: 3 # profondeur de la table/sommaire
 
 output: 
     pdf_document:
@@ -51,6 +74,7 @@ output:
 urlcolor: "blue"
 linkcolor: "red"
 toccolor: "Maroon"
+
 # fontfamily: mathpazo #works but effect = ?
 # fontfamily: sf #no
 # mainfont: Helvetica
