@@ -97,6 +97,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor con
 Vivamus{-}
 -------
 Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
+$$F_\psi(x_i) = e^x \cdot \int_i^x{\frac{t^{3^\beta}}{2\psi(i)}\ dt}$$
 
 Porttitor
 ---------
