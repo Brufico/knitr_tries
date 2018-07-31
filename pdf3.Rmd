@@ -49,7 +49,8 @@ abstract: |
 # paramètre d'output
 # ==================
 
-# paramètres généraux    
+# paramètres généraux
+# -------------------
 documentclass: article
 papersize: a4
 fontsize: 12pt
@@ -57,16 +58,21 @@ fontsize: 12pt
 # linestretch: 1.5 # missing package setspace ?? setspace.sty 
 
 # Langue
+#  -----
 lang: en # en = english, fr = français, de = Deutsch
 toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes ou true
 # nom de la table = "Sommaire"
 
+# debogage
+# --------
 debug_var: no # ves/no pour afficher les variables au début du texte
 
-
+# pied de page
 footer: \shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
 # REM shortauthor ne fonctionnera que si shortauthor ou author sont définis
 
+# toc et numérotation
+# ------------------
 secnumdepth: 4 # profondeur de numérotation des titres de section
 toc-depth: 3 # profondeur de la table/sommaire
 
@@ -75,6 +81,9 @@ output:
       toc: yes
       number_section: yes
       template: ./common/ptemplate3.tex
+
+#  couleurs des liens
+#  ------------------
 urlcolor: "blue"
 linkcolor: "red"
 toccolor: "Maroon"
@@ -84,7 +93,29 @@ toccolor: "Maroon"
 # mainfont: Helvetica
 
 geometry: "left=2.2cm,right=2.2cm,top=2.2cm,bottom=2cm,headheight=15pt,headsep=0.5cm,footskip=1cm"
+
+#  Re-espacement des titres (avec titlesec)
+
 subparagraph: yes  # nécessaire avec titlesec sinon erreur avec paragraph et subp
+
+secspace:
+- level: section
+  front: -20pt
+  up: 4
+  down: 2.3
+- level: subsection
+  front: -20pt
+  up: 3.5
+  down: 1.5
+- level: subsubsection
+  front: -20pt
+  up: 3
+  down: 1
+  
+# spacesubsection: "{-20pt}{*3.5}{*1.5}"
+# spacesubsubsection: "{-20pt}{*3}{*1}"
+# spaceparagraph: "{0pt}{*2}{*1}"
+# spacesubparagraph: "{20pt}{*.6}{*0}"
 ---
 
 ```{r setup, include=FALSE}
