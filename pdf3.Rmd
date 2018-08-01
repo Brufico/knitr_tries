@@ -101,8 +101,8 @@ geometry: "left=2.2cm,right=2.2cm,top=2.2cm,bottom=2cm,headheight=15pt,headsep=0
 # ----------------------------------------
 subparagraph: no  # si secspace: yes nécessaire avec titlesec sinon erreur avec paragraph et subp
 
-# modification de l'espacement des titres de sections
-# ---------------------------------------------------
+# ### modification de l'espacement des titres de sections (dé-commenter ce qu'on veut)
+
 
 # secspace: 
 # - level: section
@@ -150,9 +150,14 @@ Porttitor
 In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
 Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla. Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod, purus ipsum pretium metus, in lacinia nulla nisl eget sapien.
 
-```{r graphe}
+```{r graphe, message=FALSE}
 library(UsingR)
+library(ggplot2)
+# suppressPackageStartupMessages(UsingR)
 data("galton")
+
+ggplot(galton, aes(parent, child)) + geom_jitter(width = .5, height = .5, alpha = .5)
+
 
 ```
 
