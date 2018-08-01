@@ -76,8 +76,8 @@ footer: \shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
 # ------------------
 secnumdepth: 4 # profondeur de numérotation des titres de section
 toc-depth: 3 # profondeur de la table/sommaire
-lot: yes
-lof: yes
+# lot: yes # liste des tableaux
+# lof: yes # liste des figures
 output: 
     pdf_document:
       toc: yes
@@ -118,10 +118,10 @@ secspace:
   front: -20pt
   up: 3.5
   down: 1.5
-# - level: subsubsection
-#   front: -20pt
-#   up: 3
-#   down: 1
+- level: subsubsection
+  front: 0pt
+  up: 3
+  down: 1
 # - level: paragraph
 #   front: 0pt
 #   up: 2
@@ -138,7 +138,9 @@ secspace:
 opts_code <- 
         list(
                 bwtheme = FALSE,
-                specialpalette = FALSE
+                specialpalette = FALSE,
+                doclinewidth = 21 - 2.2 - 2.2, # from papersize and geometry params.
+                widthunit = cm
         )
 # loading the prep code
 source(file.path("common", "preparation.R"))
@@ -171,9 +173,9 @@ $$F_\psi(x_i) = e^x \cdot \int_{i}^{x} \frac{t^{3^{\beta}}}{2\psi(i)} \,\mathrm{
 Porttitor
 ---------
 In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
-Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla. Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod, purus ipsum pretium metus, in lacinia nulla nisl eget sapien, as in figure `r .ref("fig:", "graphe")`
+Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla. Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod, purus ipsum pretium metus, in lacinia nulla nisl eget sapien, as in figure `r .rfig("graphe")`
 
-```{r graphe, message=FALSE, warning=FALSE, echo=FALSE, fig.cap="just a Scatterplot"}
+```{r graphe, message=FALSE, warning=FALSE, echo=FALSE, fig.cap="just a Scatterplot", fig.pos= "tb"}
 
 library(ggplot2)
 # suppressPackageStartupMessages(UsingR)
@@ -187,7 +189,7 @@ gp1
 
 Donec
 -----
-Donec ut est in lectus consequat consequat. Etiam eget dui. Aliquam erat volutpat. Sed at lorem in nunc porta tristique. Proin nec augue. Voir la figure `r .ref("fig:", "grapheloess")` pour un loess et la figure `r .ref("fig:", "graphelm")` pour un ajustement linéaire. Voir aussi la section `r .ref("", "pc")`
+Donec ut est in lectus consequat consequat. Etiam eget dui. Aliquam erat volutpat. Sed at lorem in nunc porta tristique. Proin nec augue. Voir la figure `r .rfig("grapheloess")` pour un loess et la figure `r .rfig("graphelm")` pour un ajustement linéaire. Voir aussi la section `r .ref( "pc")`
 
 ```{r grapheloess, fig.cap= "identique, avec un smoother (loess)"}
 gp2 <- gp1 + geom_smooth(method = "loess")
@@ -199,7 +201,7 @@ gp2
 
 Quisque aliquam tempor magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
 
-```{r graphelm, fig.cap= "identique, avec un smoother (lm)", fig.pos="b"}
+```{r graphelm, fig.cap= "identique, avec un smoother (lm)", fig.pos="tb"}
 gp3 <- gp1 + geom_smooth(method = "lm")
 gp3
 ```
@@ -210,29 +212,36 @@ Nunc ac magna. Maecenas odio dolor, vulputate vel, auctor ac, accumsan id, felis
 Pellentesque cursus sagittis felis.
 
 ##### Vivamus
-\ a mi. Fusce in sapien eu purus dapibus commodo. 
+ a mi. Fusce in sapien eu purus dapibus commodo (comme pour le tableau `r .rtab("table")`). voir aussi section `r .rsec("Integer")`
 
 ##### Morbi
-\ neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+ neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
 ##### Aliquam
-\ erat volutpat.(cf [Integer](#Integer))
+ erat volutpat.(cf [Integer](#Integer))
 
 
 ### Pellentesque
 
 Pellentesque porttitor, velit lacinia egestas auctor, diam eros tempus arcu, nec vulputate augue magna vel risus. Cras non magna vel ante adipiscing rhoncus. Vivamus a mi. Morbi neque. Aliquam erat volutpat. [link](http://www.ipag.fr),  
 
-Else [internal link](#lorem)
+Else [internal link](#lorem), or section `r .rsec("lorem")`
 
 
 Integer ultrices lobortis eros {#Integer}
 ==============================
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin semper, ante vitae sollicitudin posuere, metus quam iaculis nibh, vitae scelerisque nunc massa eget pede. Sed velit urna, interdum vel, ultricies vel, faucibus at, quam. Donec elit est, consectetuer eget, consequat quis, tempus quis, wisi.
-In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Donec ullamcorper fringilla eros. Fusce in sapien eu purus dapibus commodo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.(see [This address][mylabel1] or [that address][mylabel3] or [thisdoc][thisdoc_pc]) (comme dans le tableau  `r .ref("tab:", "table")`
+In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Donec ullamcorper fringilla eros. Fusce in sapien eu purus dapibus commodo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.(see [This address][mylabel1] or [that address][mylabel3] or [thisdoc][thisdoc_pc]) (comme dans le tableau  `r .rtab("table")`)
 
 Cras faucibus condimentum odio. Sed ac ligula. Aliquam at eros. Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. (see [Lorem](#lorem) )
+
+```{r allgraphs, echo = FALSE, fig.width=w.13, fig.cap="Les trois ensemble"}
+gp1
+gp2
+gp3
+```
+
 
 [mylabel1]: /foo/bar.html  "My title, optional"
 [mylabel2]: /foo

@@ -10,7 +10,7 @@
 
 #
 #  Code for adjusting ggplot2 theme
-#  =================================
+#  ================================
 
 
 if (opts_code$bwtheme) {
@@ -84,7 +84,10 @@ chunkname <- function() {knitr::opts_current$get("label")}
 # Captioning / cross-referencing ***********************
 # =====================================================
 
+# Setting labels and captions
+# ----------------------------
 
+# for tables: necessary
 tabcap <- function(caption,
                    chunklabel=knitr::opts_current$get("label"),
                    context=getcontext()) {
@@ -98,10 +101,6 @@ tabcap <- function(caption,
 }
 
 
-
-
-
-
 # figure captions ?? ==> No, not needed with pdf_output
 figcap <- function(caption, chunklabel=knitr::opts_current$get("label")) {
         # debug
@@ -110,10 +109,12 @@ figcap <- function(caption, chunklabel=knitr::opts_current$get("label")) {
 }
 
 # tests
-
 # tabcap("one", "thzchunk", context = "latex")
 # tabcap("one", "thzchunk", context = "html")
 
+
+# Referencing
+# -----------
 
 # inserting a reference to a label, using the context
 
@@ -137,14 +138,18 @@ figcap <- function(caption, chunklabel=knitr::opts_current$get("label")) {
 # .ref(reflabel = "onelab", context = "html" )
 # .ref(prefix= "fig:", reflabel = "onelab", context = "other" )
 
+# Specialized reference functions
+# --------------------------------
 
-
+.rfig <- function(lab){.ref(prefix= "fig:", reflabel = lab)}
+.rtab <- function(lab){.ref(prefix= "tab:", reflabel = lab)}
+.rsec <- function(lab){.ref(prefix= "", reflabel = lab)}
 
 #######################################################
 # figures dimensions parameters ***********************
 # =====================================================
 
-#   aspect ratio
+# aspect ratio
 a.13 <- 1 / 3
 a.12 <- 0.5
 a.34 <- 0.75
@@ -153,10 +158,11 @@ a.43 <- 1.33
 a.21 <- 2
 a.31 <- 3
 
-#  width
+# width
 # == doc line width in inches * security coeff 0.98
+# == opts_code$doclinewidth défini dans le document principal
 
-doclinewidth <- (21 - 1.5 - 1.5) * 0.3937 * 0.98  # légère correction
+doclinewidth <- opts_code$doclinewidth * 0.3937 * 0.98  # légère correction
 
 w.11 <-  doclinewidth
 w.34 <- 3 / 4 * doclinewidth
