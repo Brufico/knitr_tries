@@ -1,6 +1,6 @@
 #' ---
-#' title: 'Titanic - Kaggle - Some exploration'
-#' subtitle: "R code for general preparation, called by Titanic_Explore"
+#' title: 'R code for general preparation'
+#' subtitle: "Called by the main .Rmd file"
 #' author:  "Bruno Fischer Colonimos"
 #' date: "`r format(Sys.Date(), '%d %B %Y')`"
 #' ---
@@ -13,11 +13,11 @@
 #  =================================
 
 
-if (bwtheme) {
+if (opts_code$bwtheme) {
         theme_set(theme_bw())
 }
 
-if (specialpalette) {
+if (opts_code$specialpalette) {
         # palette color-blind-friendly: The palette with black (Cookbook for R,
         # http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)
         cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73",
@@ -84,19 +84,6 @@ chunkname <- function() {knitr::opts_current$get("label")}
 # Captioning / cross-referencing ***********************
 # =====================================================
 
-# Table captions
-# tabcap <- function(caption,
-#                    chunklabel=knitr::opts_current$get("label"),
-#                    context=getcontext()) {
-#
-#         switch(context,
-#                latex = paste0("\\label{tab:", chunklabel, "}",
-#                               caption),
-#                html = paste0("<div id=tab:", chunklabel, ">",
-#                              caption, "</div>"),
-#                other = caption )
-# }
-
 
 tabcap <- function(caption,
                    chunklabel=knitr::opts_current$get("label"),
@@ -142,22 +129,6 @@ figcap <- function(caption, chunklabel=knitr::opts_current$get("label")) {
         )
 }
 
-# .ref <- function(prefix = NULL,
-#                  reflabel = "",
-#                  context = getcontext()) {
-#         switch(EXPR = context,
-#                latex = paste0("\\ref{",prefix, reflabel,"}"),
-#                html = paste0("<a href= #",
-#                               prefix, reflabel,
-#                               ">", reflabel , "</a>"), # reflabel here ?
-#                other = paste0("(#",prefix, reflabel ,")")
-#         )
-# }
-
-
-
-
-
 
 # testit
 
@@ -180,6 +151,7 @@ a.34 <- 0.75
 a.11 <- 1
 a.43 <- 1.33
 a.21 <- 2
+a.31 <- 3
 
 #  width
 # == doc line width in inches * security coeff 0.98
@@ -199,7 +171,7 @@ w.14 <- 1 / 4 * doclinewidth * 0.99 # de nouveau: légère correction
 # two3outwidth <- if (pdfoutput) {"0.64\\textwidth"} else {NULL}
 # fulloutwidth <- if (pdfoutput) {"\\textwidth"} else {NULL}
 
-# configs pr?d?finies knitr::opts_template$set()
+# configs prédéfinies knitr::opts_template$set() ==> n'a jamais marché
 
 .codeR <- paste0( "knitr::opts_template$set(",
                   if (pdfoutput) {paste0(".f14 = list(fig.width = ",
