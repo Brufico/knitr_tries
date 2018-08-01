@@ -59,7 +59,7 @@ fontsize: 12pt
 
 # Langue
 #  -----
-lang: en # en = english, fr = français, de = Deutsch
+lang: fr # en = english, fr = français, de = Deutsch
 toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes ou true
 # nom de la table = "Sommaire"
 
@@ -76,7 +76,8 @@ footer: \shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
 # ------------------
 secnumdepth: 4 # profondeur de numérotation des titres de section
 toc-depth: 3 # profondeur de la table/sommaire
-
+lot: yes
+lof: yes
 output: 
     pdf_document:
       toc: yes
@@ -156,10 +157,9 @@ Lorem ipsum{#lorem}
 ===========
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.(http://www.ipag.fr).
-```{r table}
+```{r table,message=FALSE, warning=FALSE, echo=FALSE}
 library(UsingR)
-knitr::kable(head(galton, 3), caption = tabcap("un simple tableau") )
-
+knitr::kable(head(galton, 3), caption = tabcap("Un simple tableau") )
 ```
 
 
@@ -187,7 +187,7 @@ gp1
 
 Donec
 -----
-Donec ut est in lectus consequat consequat. Etiam eget dui. Aliquam erat volutpat. Sed at lorem in nunc porta tristique. Proin nec augue. Voir la figure `r .ref("fig:", "grapheloess")` pour un loess et la figure `r .ref("fig:", "graphelm")`pour un ajustement linéaire. Voir aussi la section `r .ref("", "pc")`
+Donec ut est in lectus consequat consequat. Etiam eget dui. Aliquam erat volutpat. Sed at lorem in nunc porta tristique. Proin nec augue. Voir la figure `r .ref("fig:", "grapheloess")` pour un loess et la figure `r .ref("fig:", "graphelm")` pour un ajustement linéaire. Voir aussi la section `r .ref("", "pc")`
 
 ```{r grapheloess, fig.cap= "identique, avec un smoother (loess)"}
 gp2 <- gp1 + geom_smooth(method = "loess")
