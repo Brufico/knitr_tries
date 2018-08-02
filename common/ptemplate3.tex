@@ -307,7 +307,7 @@ $endif$
 
 % author /authors ==========
 % definition du séparateur d'item dans la liste détaillée des auteurs
-\newcommand{\authorsep}{$if(authorsep)$$authorsep$$else$ -- $endif$}
+\newcommand{\authorsep}{$if(authorsep)$$authorsep$$else$--\enspace$endif$}
 
 $if(authordetails)$
   \author{$for(authordetails)$

@@ -1,9 +1,9 @@
 ---
-title: "Pdf (Latex) tries for using a template"
-shorttitle: "Pdf-Template usage"
-subtitle : "Une sorte d'exploration pour comprendre et utiliser un template"
+title: "Pdf (Latex) demos"
+shorttitle: "Pdf-Template demo"
+subtitle : "Comprendre, modifier et utiliser un template, demontrere des possibilités"
 
-# Authors and detailed list of authors -------
+# Authors or detailed list of authors -------
 author:
 - Bruno Fischer Colonimos
 - Aristote, Bruno
@@ -21,7 +21,7 @@ authordetails:
 - name: Ahmed Bruno
   email: ahmed.bruno@ipag.fr
 
-# authorsep: " ; " # optional separator for detailed list (default is ' -- ')
+authorsep: ";\\ " # optional separator for detailed list (default is ' --\\enspace')
 
 shortauthor: Bruno et al. # pour l'affichage de noms d'auteurs dans le pied de page
 
@@ -45,6 +45,7 @@ abstract: |
     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING  
     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING. link = http:/www.ipag.fr
 
+bibliography: common/example.bib
 
 # paramètre d'output
 # ==================
@@ -82,6 +83,7 @@ output:
     pdf_document:
       toc: yes
       number_section: yes
+      fig_caption: yes # inutile ?
       template: ./common/ptemplate3.tex
 
 #  couleurs des liens
@@ -158,19 +160,20 @@ knitr::opts_chunk$set(echo = TRUE, fig.cap = "", fig.width = w.12, fig.asp = a.3
 Lorem ipsum{#lorem} 
 ===========
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.(http://www.ipag.fr).
+Lorem ipsum dolor @qtz:UchArb sit amet[^shortnote], consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.(http://www.ipag.fr).
+
 ```{r table,message=FALSE, warning=FALSE, echo=FALSE}
 library(UsingR)
 knitr::kable(head(galton, 3), caption = tabcap("Un simple tableau") )
 ```
 
 
-Vivamus{-}
+Vivamus
 -------
-Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
+Vivamus a tellus[^longnote]. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
 $$F_\psi(x_i) = e^x \cdot \int_{i}^{x} \frac{t^{3^{\beta}}}{2\psi(i)} \,\mathrm{dt}$$
 
-Porttitor
+Porttitor^[Inline note]
 ---------
 In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
 Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla. Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod, purus ipsum pretium metus, in lacinia nulla nisl eget sapien, as in figure `r .rfig("graphe")`
@@ -209,7 +212,9 @@ gp3
 Nunc ac magna. Maecenas odio dolor, vulputate vel, auctor ac, accumsan id, felis.
 
 #### Pellentesque cursus{#pc}
-Pellentesque cursus sagittis felis.
+Pellentesque cursus sagittis felis.![logo](visuals/logoipag){width=0.5cm}
+
+![Ipaglogo](visuals/logoipag){width=1cm}
 
 ##### Vivamus
  a mi. Fusce in sapien eu purus dapibus commodo (comme pour le tableau `r .rtab("table")`). voir aussi section `r .rsec("Integer")`
@@ -242,6 +247,14 @@ gp2
 gp3
 ```
 
+Reference
+=========
+
+
+[^shortnote]: Here is the footnote.
+[^longnote]: here is a long long long long long long long long long long long long long long long long long long long long note. multiple parags do not work well.\
+\indent Very long indeeed boring boring boring boring boring? necessary manual line break in this paragraph, otherwise it overflows the right margin boring boring boring boring boring boring boring boring boring boring boring boring boring boring 
+    
 
 [mylabel1]: /foo/bar.html  "My title, optional"
 [mylabel2]: /foo
