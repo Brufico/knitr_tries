@@ -63,7 +63,7 @@ fontsize: 12pt
 
 # Langue
 #  -----
-lang: fr # en = english, fr = français, de = Deutsch
+lang: en # en = english, fr = français, de = Deutsch
 toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes ou true
 # nom de la table = "Sommaire"
 
@@ -78,16 +78,29 @@ footer: \shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
 
 # toc et numérotation
 # ------------------
+
 secnumdepth: 4 # profondeur de numérotation des titres de section
 toc-depth: 3 # profondeur de la table/sommaire
 # lot: yes # liste des tableaux
 # lof: yes # liste des figures
 output: 
-    pdf_document:
+    # pdf_document:
+    #   toc: yes
+    #   number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   template: ./common/ptemplate3.tex
+    # word_document:
+    #   toc: yes
+    #   # number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   # template: ./common/ptemplate3.tex
+    html_document:
       toc: yes
       number_section: yes
       fig_caption: yes # inutile ?
-      template: ./common/ptemplate3.tex
+      # template: ./common/ptemplate3.tex
+
+
 
 #  couleurs des liens
 #  ------------------
@@ -215,9 +228,9 @@ gp3
 Nunc ac magna. Maecenas odio dolor, vulputate vel, auctor ac, accumsan id, felis.
 
 #### Pellentesque cursus{#pc}
-Pellentesque cursus sagittis felis.![logo](visuals/logoipag){width=0.5cm}
+Pellentesque cursus sagittis felis.![logo](visuals/logoipag.jpg){width=0.5cm}
 
-![Ipaglogo](visuals/logoipag){width=1cm}
+![Ipaglogo](visuals/logoipag.jpg){width=1cm}
 
 ##### Vivamus
  a mi. Fusce in sapien eu purus dapibus commodo (comme pour le tableau `r .rtab("table")`). voir aussi section `r .rsec("Integer")`
@@ -245,6 +258,7 @@ In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, 
 Cras faucibus condimentum odio. Sed ac ligula. Aliquam at eros. Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. (see [Lorem](#lorem) )
 
 
+
 Appendices{-}
 ===========
 
@@ -265,14 +279,25 @@ Appendix B{-}
 
 Blah
 
+citation:
+
+>"On peut ici écrire n'importe quoi, puisque c'est censé être une citation. Il fut toutefois mettre en valeur le nom de l'auteur."
+>
+>--- Charles De Gaulle
+
+blah blah.
+
+
 
 References
 ==========
 
+<!-- the biblio references come automatically here -->
 
+<!-- here are defined notes and links, if needed -->
 [^shortnote]: Here is the footnote.
 [^longnote]: here is a long long long long long long long long long long long long long long long long long long long long note. multiple parags do not work well.\
-\indent Very long indeeed boring boring boring boring boring? necessary manual line break in this paragraph, otherwise it overflows the right margin boring boring boring boring boring boring boring boring boring boring boring boring boring boring 
+Very long indeeed boring boring boring boring boring? necessary manual line break in this paragraph if it is a paragraph, otherwise it overflows the right margin boring boring boring boring boring boring boring boring boring boring boring boring boring boring 
     
 
 [mylabel1]: /foo/bar.html  "My title, optional"
