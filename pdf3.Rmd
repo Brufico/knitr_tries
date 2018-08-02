@@ -266,8 +266,8 @@ Appendix B{-}
 Blah
 
 
-Reference
-=========
+References
+==========
 
 
 [^shortnote]: Here is the footnote.
