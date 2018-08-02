@@ -46,6 +46,9 @@ abstract: |
     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING. link = http:/www.ipag.fr
 
 bibliography: common/example.bib
+link-citations: true
+nocite: |
+  @dum:Aris, @cos:brf
 
 # paramètre d'output
 # ==================
@@ -160,7 +163,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.cap = "", fig.width = w.12, fig.asp = a.3
 Lorem ipsum{#lorem} 
 ===========
 
-Lorem ipsum dolor @qtz:UchArb sit amet[^shortnote], consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.(http://www.ipag.fr).
+Lorem ipsum dolor [@qtz:UchArb] sit amet[^shortnote], consectetuer adipiscing elit[@qtz:UchArb; @cos:brf]. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.(http://www.ipag.fr).
 
 ```{r table,message=FALSE, warning=FALSE, echo=FALSE}
 library(UsingR)
@@ -241,11 +244,27 @@ In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, 
 
 Cras faucibus condimentum odio. Sed ac ligula. Aliquam at eros. Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. (see [Lorem](#lorem) )
 
+
+Appendices{-}
+===========
+
+Appendix A{-}
+----------
+
+La figure `r .rfig("allgraphs")` présente les trois graphes ensemble.
+
 ```{r allgraphs, echo = FALSE, fig.width=w.13, fig.cap="Les trois ensemble"}
 gp1
 gp2
 gp3
 ```
+
+
+Appendix B{-}
+----------
+
+Blah
+
 
 Reference
 =========
