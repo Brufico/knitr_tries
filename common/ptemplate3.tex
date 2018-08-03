@@ -459,8 +459,28 @@ $endif$
 $if(abstract)$
 \begin{abstract}
 $abstract$
+
+% added BFC tags à la fin du résumé
+$if(showtags)$
+
+$if(lang)$
+\ifthenelse{\equal{$lang$}{fr}} 
+{\newcommand{\tagname}{Mots-clé:}} 
+{\newcommand{\tagname}{Tags:}}
+$else$
+\newcommand{\tagname}{Tags:}
+$endif$
+
+\par
+\textbf{\tagname\ }$tags$
+\par
+$endif$
+% end
+
 \end{abstract}
 $endif$
+
+% autre position pour les tags
 
 
 $for(include-before)$

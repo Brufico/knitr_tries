@@ -1,7 +1,7 @@
 ---
-title: "Pdf (Latex) demos"
+title: "Pdf (Latex) and HTML demos"
 shorttitle: "Pdf-Template demo"
-subtitle : "Comprendre, modifier et utiliser un template, demontrere des possibilités"
+subtitle : "Comprendre, modifier et utiliser un template, essayer, démontrer des possibilités"
 
 # Authors or detailed list of authors -------
 author:
@@ -35,8 +35,8 @@ logo: yes
 logopath: ../visuals/logoipag #extension omitted
 logowidth: 50pt
 
-# mots-clé
-tags: [nothing, nothingness]
+
+
 # résumé
 abstract: |
     Ceci est un résumé multi-paragraphes\
@@ -46,6 +46,10 @@ abstract: |
     
     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING  
     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING. link = http:/www.ipag.fr
+
+# mots-clé, rubrique ajoutée au résumé, si présent
+showtags: yes
+tags: "[nothing, nothingness, somethinglessness]"
 
 bibliography: ../common/example.bib
 link-citations: true
@@ -65,7 +69,7 @@ fontsize: 12pt
 
 # Langue
 #  -----
-lang: en # en = english, fr = français, de = Deutsch
+lang: fr # en = english, fr = français, de = Deutsch
 toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes ou true
 # nom de la table = "Sommaire"
 
@@ -128,8 +132,7 @@ geometry: "left=2.2cm,right=2.2cm,top=2.2cm,bottom=2cm,headheight=15pt,headsep=0
 # ----------------------------------------
 subparagraph: yes  # si secspace: yes nécessaire avec titlesec sinon erreur avec paragraph et subp
 
-# ### modification de l'espacement des titres de sections (dé-commenter ce qu'on veut)
-
+# ### modification de l'espacement des titres de sections (dé-commenter ce qu'on veut) (LaTex)
 
 secspace:
 - level: section
@@ -155,6 +158,8 @@ secspace:
 
 ---
 
+<!-- commencement du code initial -->
+
 ```{r prepcode, include=FALSE}
 # configuing the prep code
 opts_code <- 
@@ -173,12 +178,14 @@ source(file.path("..", "common", "preparation.R"))
 knitr::opts_chunk$set(echo = TRUE, fig.cap = "", fig.width = w.12, fig.asp = a.34, fig.pos = "H", fig.align = "center", fig.show = "hold")
 ```
 
-
+<!-- Fin du code initial, début du document -->
 
 ************************
 
 Lorem ipsum{#lorem} 
 ===========
+
+Dans ce paragraphe : références bibliographiques, footnote par référence et lien automatique externe, puis petit tableau.
 
 Lorem ipsum dolor [@qtz:UchArb] sit amet[^shortnote], consectetuer adipiscing elit[@qtz:UchArb; @cos:brf]. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.(http://www.ipag.fr).
 
@@ -190,11 +197,15 @@ knitr::kable(head(galton, 3), caption = tabcap("Un simple tableau") )
 
 Vivamus
 -------
+Dans ce paragraphe : fotnote multi-paragraphe, lien avec texte, équation.
+
 Vivamus a tellus[^longnote]. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
 $$F_\psi(x_i) = e^x \cdot \int_{i}^{x} \frac{t^{3^{\beta}}}{2\psi(i)} \,\mathrm{dt}$$
 
 Porttitor^[Inline note]
 ---------
+Dans ce paragraphe : Inline footnote dans le titre, référence à une figure, puis génération de la figure.
+
 In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
 Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla. Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod, purus ipsum pretium metus, in lacinia nulla nisl eget sapien, as in figure `r .rfig("graphe")`
 
@@ -212,6 +223,9 @@ gp1
 
 Donec
 -----
+
+Dans ce paragraphe : 2 références à une figure, puis référence à une section, puis génération de figure.
+
 Donec ut est in lectus consequat consequat. Etiam eget dui. Aliquam erat volutpat. Sed at lorem in nunc porta tristique. Proin nec augue. Voir la figure `r .rfig("grapheloess")` pour un loess et la figure `r .rfig("graphelm")` pour un ajustement linéaire. Voir aussi la section `r .ref( "pc")`
 
 ```{r grapheloess, fig.cap= "identique, avec un smoother (loess)"}
@@ -221,6 +235,8 @@ gp2
 
 
 ### Quisque
+
+Dans ce paragraphe : génération de figure.
 
 Quisque aliquam tempor magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
 
@@ -232,6 +248,9 @@ gp3
 Nunc ac magna. Maecenas odio dolor, vulputate vel, auctor ac, accumsan id, felis.
 
 #### Pellentesque cursus{#pc}
+
+Dans ce paragraphe : chargement (markdown) d'une image dans un texte, puis idem dans un paragraphe indépendant ( = figure).
+
 Pellentesque cursus sagittis felis.![logo](../visuals/logoipag.jpg){width=0.5cm}
 
 ![Ipaglogo](../visuals/logoipag.jpg){width=1cm}
