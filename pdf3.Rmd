@@ -35,6 +35,8 @@ logo: yes
 logopath: visuals/logoipag #extension omitted
 logowidth: 50pt
 
+# mots-clé
+tags: [nothing, nothingness]
 # résumé
 abstract: |
     Ceci est un résumé multi-paragraphes\
@@ -79,26 +81,27 @@ footer: \shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
 # toc et numérotation
 # ------------------
 
-secnumdepth: 4 # profondeur de numérotation des titres de section
+secnumdepth: 4 # profondeur de numérotation des titres de section (LaTex)
 toc-depth: 3 # profondeur de la table/sommaire
 # lot: yes # liste des tableaux
 # lof: yes # liste des figures
+
 output: 
-    # pdf_document:
-    #   toc: yes
-    #   number_section: yes
-    #   fig_caption: yes # inutile ?
-    #   template: ./common/ptemplate3.tex
+    pdf_document:
+      toc: yes
+      number_section: yes
+      fig_caption: yes # inutile ?
+      template: ./common/ptemplate3.tex
     # word_document:
     #   toc: yes
     #   # number_section: yes
     #   fig_caption: yes # inutile ?
     #   # template: ./common/ptemplate3.tex
-    html_document:
-      toc: yes
-      number_section: yes
-      fig_caption: yes # inutile ?
-      # template: ./common/ptemplate3.tex
+    # html_document:
+    #   toc: yes
+    #   number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   # template: ./common/ptemplate3.tex
 
 
 
