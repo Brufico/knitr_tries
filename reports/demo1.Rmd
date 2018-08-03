@@ -174,7 +174,8 @@ source(file.path("..", "common", "preparation.R"))
 ```
 
 ```{r setup, include=FALSE}
-
+# libraries
+library(knitr)
 knitr::opts_chunk$set(echo = TRUE, fig.cap = "", fig.width = w.12, fig.asp = a.34, fig.pos = "H", fig.align = "center", fig.show = "hold")
 ```
 
@@ -197,14 +198,17 @@ knitr::kable(head(galton, 3), caption = tabcap("Un simple tableau") )
 
 Vivamus
 -------
-Dans ce paragraphe : fotnote multi-paragraphe, lien avec texte, équation.
+Dans ce paragraphe : fotnote multi-paragraphe, réfarence à un tableau, lien avec texte, équation.
 
-Vivamus a tellus[^longnote]. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
+Vivamus a tellus[^longnote]. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Référence au tableau `r .rtab("table")`.
+
+Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
 $$F_\psi(x_i) = e^x \cdot \int_{i}^{x} \frac{t^{3^{\beta}}}{2\psi(i)} \,\mathrm{dt}$$
 
-Porttitor^[Inline note]
+
+Porttitor^[Une 'Inline note']
 ---------
-Dans ce paragraphe : Inline footnote dans le titre, référence à une figure, puis génération de la figure.
+Dans ce paragraphe : 'Inline footnote' dans le titre, référence à une figure, puis génération de la figure (code chunk masqué---echo = FALSE).
 
 In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
 Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla. Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod, purus ipsum pretium metus, in lacinia nulla nisl eget sapien, as in figure `r .rfig("graphe")`
@@ -224,7 +228,7 @@ gp1
 Donec
 -----
 
-Dans ce paragraphe : 2 références à une figure, puis référence à une section, puis génération de figure.
+Dans ce paragraphe : 2 références à une figure, puis référence à une section, puis génération de figure (code chunk affiché).
 
 Donec ut est in lectus consequat consequat. Etiam eget dui. Aliquam erat volutpat. Sed at lorem in nunc porta tristique. Proin nec augue. Voir la figure `r .rfig("grapheloess")` pour un loess et la figure `r .rfig("graphelm")` pour un ajustement linéaire. Voir aussi la section `r .ref( "pc")`
 
@@ -236,7 +240,7 @@ gp2
 
 ### Quisque
 
-Dans ce paragraphe : génération de figure.
+Dans ce paragraphe : génération de figure (code chunk affiché).
 
 Quisque aliquam tempor magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
 
@@ -247,6 +251,7 @@ gp3
 #### Nunc
 Nunc ac magna. Maecenas odio dolor, vulputate vel, auctor ac, accumsan id, felis.
 
+
 #### Pellentesque cursus{#pc}
 
 Dans ce paragraphe : chargement (markdown) d'une image dans un texte, puis idem dans un paragraphe indépendant ( = figure).
@@ -255,30 +260,64 @@ Pellentesque cursus sagittis felis.![logo](../visuals/logoipag.jpg){width=0.5cm}
 
 ![Ipaglogo](../visuals/logoipag.jpg){width=1cm}
 
+
+#### Pellentesque omnibus{#po}
+
+Dans ce paragraphe : presqu'identique: chargement (inline R chunk) d'une image dans un texte, puis idem dans un code chunk indépendant.
+
+Laborator manusque hic caput. *un inline chunk ne fonctionne pas ici parce que l'image ne semble pas redimensionnable. voir avec les packages jpeg et png*
+
+Et maintenant dans un paragraphe indépendant (ie dans un code chunk)
+```{r includegraphs, out.width="1cm", fig.align= 'center'}
+knitr:::include_graphics("../visuals/logoipag.jpg")
+```
+
+
 ##### Vivamus
- a mi. Fusce in sapien eu purus dapibus commodo (comme pour le tableau `r .rtab("table")`). voir aussi section `r .rsec("Integer")`
+a mi. Dans ce paragraphe : Référence tableau  et référence section.\
+Fusce in sapien eu purus dapibus commodo (comme pour le tableau `r .rtab("modele")`). voir aussi section `r .rsec("Integer")`
 
 ##### Morbi
- neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
 ##### Aliquam
- erat volutpat.(cf [Integer](#Integer))
+erat volutpat.Dans ce paragraphe : lien markdown vers une section :(cf [Section Integer](#Integer))
 
 
 ### Pellentesque
 
-Pellentesque porttitor, velit lacinia egestas auctor, diam eros tempus arcu, nec vulputate augue magna vel risus. Cras non magna vel ante adipiscing rhoncus. Vivamus a mi. Morbi neque. Aliquam erat volutpat. [link](http://www.ipag.fr),  
+Dans ce paragraphe : lien markdown externe, lien  markdown interne, référence section
 
-Else [internal link](#lorem), or section `r .rsec("lorem")`
+Pellentesque porttitor, velit lacinia egestas auctor, diam eros tempus arcu, nec vulputate augue magna vel risus. Cras non magna vel ante adipiscing rhoncus. Vivamus a mi. Morbi neque. Aliquam erat volutpat. [Ipag link](http://www.ipag.fr),  
+
+Else [internal link](#lorem), or section `r .rsec("pc")`
 
 
 Integer ultrices lobortis eros {#Integer}
 ==============================
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin semper, ante vitae sollicitudin posuere, metus quam iaculis nibh, vitae scelerisque nunc massa eget pede. Sed velit urna, interdum vel, ultricies vel, faucibus at, quam. Donec elit est, consectetuer eget, consequat quis, tempus quis, wisi.
-In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Donec ullamcorper fringilla eros. Fusce in sapien eu purus dapibus commodo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.(see [This address][mylabel1] or [that address][mylabel3] or [thisdoc][thisdoc_pc]) (comme dans le tableau  `r .rtab("table")`)
 
-Cras faucibus condimentum odio. Sed ac ligula. Aliquam at eros. Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. (see [Lorem](#lorem) )
+Modelus modelum
+---------------
+In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.
+
+```{r modele}
+g1 <- lm(child ~ parent, data = galton)
+
+kable(list(cor(galton), g1$coefficients), 
+      caption = tabcap("Correlation matrix, Regression coefficients") )
+
+```
+
+
+Donec ullamcorper fringilla eros. Fusce in sapien eu purus dapibus commodo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+(Liens markdown a gogo: [This address][mylabel1] or [that address][mylabel3] or [thisdoc][thisdoc_pc]) 
+
+Référence tableau: (comme dans le tableau `r .rtab("table")`)
+
+Cras faucibus condimentum odio. Sed ac ligula. Aliquam at eros. Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. (Lien vers section [Lorem](#lorem) )
 
 
 
@@ -306,7 +345,7 @@ citation:
 
 >"On peut ici écrire n'importe quoi, puisque c'est censé être une citation. Il fut toutefois mettre en valeur le nom de l'auteur."
 >
->--- Charles De Gaulle
+> --- **Charles De Gaulle** (enfin, peut-être...)
 
 blah blah.
 

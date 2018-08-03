@@ -1,0 +1,29 @@
+---
+
+title: TODO
+author: Bruno Fischer Colonimos
+---
+
+
+
+03.08.18
+========
+
+R
+-----
+package bookdown
+package png, jpeg
+
+Latex
+-----
+Latex package setspace
+tags dans modèle fait
+header logo
+telecharger les templates pandoc sur Github
+
+
+HTML
+----
+
+vérifier l'affichage des équations
+
