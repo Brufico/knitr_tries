@@ -1,0 +1,312 @@
+---
+title: "Pdf (Latex) demos"
+shorttitle: "Pdf-Template demo"
+subtitle : "Comprendre, modifier et utiliser un template, demontrere des possibilités"
+
+# Authors or detailed list of authors -------
+author:
+- Bruno Fischer Colonimos
+- Aristote, Bruno
+- Bruno, Giordano
+
+# si la section authordetails est présente, la section author n'est pas utilisée
+authordetails: 
+- name: Bruno Fischer Colonimos
+  affiliation: University of Somewhere
+  email: br.fischer@ipag.fr
+- name: Aristote, Bruno
+  affiliation: University of Nowhere
+- name: Bruno, Giordano
+  # affiliation: University of Anywhere
+- name: Ahmed Bruno
+  email: ahmed.bruno@ipag.fr
+
+authorsep: ";\\ " # optional separator for detailed list (default is ' --\\enspace')
+
+shortauthor: Bruno et al. # pour l'affichage de noms d'auteurs dans le pied de page
+
+
+# date et/ou date détaillée -------
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+# date: "`r paste0('Revision: 31 juillet 2018, edition: ',  format(Sys.Date(), '%d %B %Y') )`"
+
+# inclusion d'un logo après le titre
+logo: yes
+logopath: ../visuals/logoipag #extension omitted
+logowidth: 50pt
+
+# mots-clé
+tags: [nothing, nothingness]
+# résumé
+abstract: |
+    Ceci est un résumé multi-paragraphes\
+    This is just an experiment on formatting with a new template.  
+    
+    I would certainly drag it for a long time, in order to cover many lines. But it will certainly be BORING,
+    
+    BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING  
+    BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING. link = http:/www.ipag.fr
+
+bibliography: ../common/example.bib
+link-citations: true
+nocite: |
+  @dum:Aris, @cos:brf
+
+# paramètre d'output
+# ==================
+
+# paramètres généraux
+# -------------------
+documentclass: article
+papersize: a4
+fontsize: 12pt
+## pour varier l'interligne
+# linestretch: 1.5 # missing package setspace ?? setspace.sty 
+
+# Langue
+#  -----
+lang: en # en = english, fr = français, de = Deutsch
+toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes ou true
+# nom de la table = "Sommaire"
+
+# debogage
+# --------
+debug_var: no # ves/no pour afficher les variables au début du texte
+
+# pied de page (un en-tête de page sera automatique si footer est défini)
+# -----------
+footer: \shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
+# REM shortauthor ne fonctionnera que si shortauthor ou author sont définis
+
+
+# toc et numérotation
+# ------------------
+
+secnumdepth: 4 # profondeur de numérotation des titres de section (LaTex)
+toc-depth: 3 # profondeur de la table/sommaire
+# lot: yes # liste des tableaux
+# lof: yes # liste des figures
+
+output: 
+    pdf_document:
+      toc: yes
+      number_section: yes
+      fig_caption: yes # inutile ?
+      template: ../common/ptemplate3.tex
+    # word_document:
+    #   toc: yes
+    #   # number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   # template: ./common/ptemplate3.tex
+    # html_document:
+    #   toc: yes
+    #   number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   # template: ./common/ptemplate3.tex
+
+
+
+#  couleurs des liens
+#  ------------------
+urlcolor: "blue"
+linkcolor: "red"
+toccolor: "Maroon"
+
+# polices (problematique)
+# -------
+# fontfamily: mathpazo #works but effect = ?
+# fontfamily: sf #no
+# fontfamily: helvetica # no
+# mainfont: Helvetica
+# fontfamily: alegreya # works but ugly
+# fontfamily: epigraphica does not 
+# fontfamily: cmr
+
+geometry: "left=2.2cm,right=2.2cm,top=2.2cm,bottom=2cm,headheight=15pt,headsep=0.5cm,footskip=1cm"
+
+# Re-espacement des titres (avec titlesec)
+# ----------------------------------------
+subparagraph: yes  # si secspace: yes nécessaire avec titlesec sinon erreur avec paragraph et subp
+
+# ### modification de l'espacement des titres de sections (dé-commenter ce qu'on veut)
+
+
+secspace:
+- level: section
+  front: -20pt
+  up: 4
+  down: 2.3
+- level: subsection
+  front: -20pt
+  up: 3.5
+  down: 1.5
+- level: subsubsection
+  front: 0pt
+  up: 3
+  down: 1
+# - level: paragraph
+#   front: 0pt
+#   up: 2
+#   down: 1  
+# - level: subparagraph
+#   front: 20pt
+#   up: .6
+#   down: 0  
+
+---
+
+```{r prepcode, include=FALSE}
+# configuing the prep code
+opts_code <- 
+        list(
+                bwtheme = FALSE,
+                specialpalette = FALSE,
+                doclinewidth = 21 - 2.2 - 2.2, # from papersize and geometry params.
+                widthunit = cm
+        )
+# loading the prep code
+source(file.path("..", "common", "preparation.R"))
+```
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, fig.cap = "", fig.width = w.12, fig.asp = a.34, fig.pos = "H", fig.align = "center", fig.show = "hold")
+```
+
+
+
+************************
+
+Lorem ipsum{#lorem} 
+===========
+
+Lorem ipsum dolor [@qtz:UchArb] sit amet[^shortnote], consectetuer adipiscing elit[@qtz:UchArb; @cos:brf]. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.(http://www.ipag.fr).
+
+```{r table,message=FALSE, warning=FALSE, echo=FALSE}
+library(UsingR)
+knitr::kable(head(galton, 3), caption = tabcap("Un simple tableau") )
+```
+
+
+Vivamus
+-------
+Vivamus a tellus[^longnote]. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
+$$F_\psi(x_i) = e^x \cdot \int_{i}^{x} \frac{t^{3^{\beta}}}{2\psi(i)} \,\mathrm{dt}$$
+
+Porttitor^[Inline note]
+---------
+In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
+Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla. Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod, purus ipsum pretium metus, in lacinia nulla nisl eget sapien, as in figure `r .rfig("graphe")`
+
+```{r graphe, message=FALSE, warning=FALSE, echo=FALSE, fig.cap="just a Scatterplot", fig.pos= "tb"}
+
+library(ggplot2)
+# suppressPackageStartupMessages(UsingR)
+data("galton")
+
+gp1 <- ggplot(galton, aes(parent, child)) + geom_jitter(width = .5, height = .5, alpha = .5)
+#  show
+gp1
+```
+
+
+Donec
+-----
+Donec ut est in lectus consequat consequat. Etiam eget dui. Aliquam erat volutpat. Sed at lorem in nunc porta tristique. Proin nec augue. Voir la figure `r .rfig("grapheloess")` pour un loess et la figure `r .rfig("graphelm")` pour un ajustement linéaire. Voir aussi la section `r .ref( "pc")`
+
+```{r grapheloess, fig.cap= "identique, avec un smoother (loess)"}
+gp2 <- gp1 + geom_smooth(method = "loess")
+gp2
+```
+
+
+### Quisque
+
+Quisque aliquam tempor magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+
+```{r graphelm, fig.cap= "identique, avec un smoother (lm)", fig.pos="tb"}
+gp3 <- gp1 + geom_smooth(method = "lm")
+gp3
+```
+#### Nunc
+Nunc ac magna. Maecenas odio dolor, vulputate vel, auctor ac, accumsan id, felis.
+
+#### Pellentesque cursus{#pc}
+Pellentesque cursus sagittis felis.![logo](../visuals/logoipag.jpg){width=0.5cm}
+
+![Ipaglogo](../visuals/logoipag.jpg){width=1cm}
+
+##### Vivamus
+ a mi. Fusce in sapien eu purus dapibus commodo (comme pour le tableau `r .rtab("table")`). voir aussi section `r .rsec("Integer")`
+
+##### Morbi
+ neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+##### Aliquam
+ erat volutpat.(cf [Integer](#Integer))
+
+
+### Pellentesque
+
+Pellentesque porttitor, velit lacinia egestas auctor, diam eros tempus arcu, nec vulputate augue magna vel risus. Cras non magna vel ante adipiscing rhoncus. Vivamus a mi. Morbi neque. Aliquam erat volutpat. [link](http://www.ipag.fr),  
+
+Else [internal link](#lorem), or section `r .rsec("lorem")`
+
+
+Integer ultrices lobortis eros {#Integer}
+==============================
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin semper, ante vitae sollicitudin posuere, metus quam iaculis nibh, vitae scelerisque nunc massa eget pede. Sed velit urna, interdum vel, ultricies vel, faucibus at, quam. Donec elit est, consectetuer eget, consequat quis, tempus quis, wisi.
+In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Donec ullamcorper fringilla eros. Fusce in sapien eu purus dapibus commodo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.(see [This address][mylabel1] or [that address][mylabel3] or [thisdoc][thisdoc_pc]) (comme dans le tableau  `r .rtab("table")`)
+
+Cras faucibus condimentum odio. Sed ac ligula. Aliquam at eros. Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. (see [Lorem](#lorem) )
+
+
+
+Appendices{-}
+===========
+
+Appendix A{-}
+----------
+
+La figure `r .rfig("allgraphs")` présente les trois graphes ensemble.
+
+```{r allgraphs, echo = FALSE, fig.width=w.13, fig.cap="Les trois ensemble"}
+gp1
+gp2
+gp3
+```
+
+
+Appendix B{-}
+----------
+
+Blah
+
+citation:
+
+>"On peut ici écrire n'importe quoi, puisque c'est censé être une citation. Il fut toutefois mettre en valeur le nom de l'auteur."
+>
+>--- Charles De Gaulle
+
+blah blah.
+
+
+
+References
+==========
+
+<!-- the biblio references come automatically here -->
+
+<!-- here are defined notes and links, if needed -->
+[^shortnote]: Here is the footnote.
+[^longnote]: here is a long long long long long long long long long long long long long long long long long long long long note. multiple parags do not work well.\
+Very long indeeed boring boring boring boring boring? necessary manual line break in this paragraph if it is a paragraph, otherwise it overflows the right margin boring boring boring boring boring boring boring boring boring boring boring boring boring boring 
+    
+
+[mylabel1]: /foo/bar.html  "My title, optional"
+[mylabel2]: /foo
+[mylabel3]: http://fsf.org (The free software foundation)
+[mylabel4]: /bar#special  'A title in single quotes'
+[thisdoc_pc]: #pc
+
