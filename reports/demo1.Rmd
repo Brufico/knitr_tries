@@ -64,8 +64,9 @@ nocite: |
 documentclass: article
 papersize: a4
 fontsize: 12pt
-## pour varier l'interligne
-# linestretch: 1.5 # missing package setspace ?? setspace.sty 
+
+## pour varier l'interligne (nécessite latex package setspace)
+# linestretch: 2 
 
 # Langue
 #  -----
@@ -92,21 +93,21 @@ toc-depth: 3 # profondeur de la table/sommaire
 # lof: yes # liste des figures
 
 output: 
-    # pdf_document:
-    #   toc: yes
-    #   number_section: yes
-    #   fig_caption: yes # inutile ?
-    #   template: ../common/ptemplate3.tex
+    pdf_document:
+      toc: yes
+      number_section: yes
+      fig_caption: yes # inutile ?
+      template: ../common/ptemplate3.tex
     # word_document:
     #   toc: yes
     #   # number_section: yes
     #   fig_caption: yes # inutile ?
     #   # template: ./common/ptemplate3.tex
-    html_document:
-      toc: yes
-      number_section: yes
-      fig_caption: yes # inutile ?
-      # template: ./common/ptemplate3.tex
+    # html_document:
+    #   toc: yes
+    #   number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   # template: ./common/ptemplate3.tex
 
 
 

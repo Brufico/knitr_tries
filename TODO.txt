@@ -11,14 +11,14 @@ author: Bruno Fischer Colonimos
 
 R
 -----
-package bookdown
-package png, jpeg
+package bookdown - fait
+package png, jpeg - fait
 
 Latex
 -----
-Latex package setspace
+Latex package setspace _ fait
 header logo
-telecharger les templates pandoc sur Github
+telecharger les templates pandoc sur Github _ fait
 tags dans modèle fait
 
 HTML
