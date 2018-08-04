@@ -93,21 +93,21 @@ toc-depth: 3 # profondeur de la table/sommaire
 # lof: yes # liste des figures
 
 output: 
-    pdf_document:
-      toc: yes
-      number_section: yes
-      fig_caption: yes # inutile ?
-      template: ../common/ptemplate3.tex
+    # pdf_document:
+    #   toc: yes
+    #   number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   template: ../common/ptemplate3.tex
     # word_document:
     #   toc: yes
     #   # number_section: yes
     #   fig_caption: yes # inutile ?
     #   # template: ./common/ptemplate3.tex
-    # html_document:
-    #   toc: yes
-    #   number_section: yes
-    #   fig_caption: yes # inutile ?
-    #   # template: ./common/ptemplate3.tex
+    html_document:
+      toc: yes
+      number_section: yes
+      fig_caption: yes # inutile ?
+      # template: ./common/ptemplate3.tex
 
 
 
@@ -199,11 +199,12 @@ knitr::kable(head(galton, 3), caption = tabcap("Un simple tableau") )
 
 Vivamus
 -------
-Dans ce paragraphe : fotnote multi-paragraphe, réfarence à un tableau, lien avec texte, équation.
+Dans ce paragraphe : footnote multi-paragraphe, réfarence à un tableau, lien avec texte, équation.
 
 Vivamus a tellus[^longnote]. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Référence au tableau `r .rtab("petitable")`.
 
 Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
+
 $$F_\psi(x_i) = e^x \cdot \int_{i}^{x} \frac{t^{3^{\beta}}}{2\psi(i)} \,\mathrm{dt}$$
 
 
@@ -214,7 +215,7 @@ Dans ce paragraphe : 'Inline footnote' dans le titre, référence à une figure,
 In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
 Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla. Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod, purus ipsum pretium metus, in lacinia nulla nisl eget sapien, as in figure `r .rfig("graphe")`
 
-```{r graphe, message=FALSE, warning=FALSE, echo=FALSE, fig.cap="just a Scatterplot", fig.pos= "tb"}
+```{r graphe, message=FALSE, warning=FALSE, echo=FALSE, fig.cap=figcap("just a Scatterplot"), fig.pos= "tb"}
 
 library(ggplot2)
 # suppressPackageStartupMessages(UsingR)
@@ -229,11 +230,11 @@ gp1
 Donec
 -----
 
-Dans ce paragraphe : 2 références à une figure, puis référence à une section, puis génération de figure (code chunk affiché).
+Dans ce paragraphe : 2 références à une figure, puis référence à une section et un lien vers la même, puis génération de figure (code chunk affiché).
 
-Donec ut est in lectus consequat consequat. Etiam eget dui. Aliquam erat volutpat. Sed at lorem in nunc porta tristique. Proin nec augue. Voir la figure `r .rfig("grapheloess")` pour un loess et la figure `r .rfig("graphelm")` pour un ajustement linéaire. Voir aussi la section `r .ref( "pc")`
+Donec ut est in lectus consequat consequat. Etiam eget dui. Aliquam erat volutpat. Sed at lorem in nunc porta tristique. Proin nec augue. Voir la figure `r .rfig("grapheloess")` pour un loess et la figure `r .rfig("graphelm")` pour un ajustement linéaire. Reference Voir aussi la section `r .rsec( "pc")`, lien [pclink](#pc)
 
-```{r grapheloess, fig.cap= "identique, avec un smoother (loess)"}
+```{r grapheloess, fig.cap= figcap("identique, avec un smoother (loess)")}
 gp2 <- gp1 + geom_smooth(method = "loess")
 gp2
 ```
@@ -245,7 +246,7 @@ Dans ce paragraphe : génération de figure (code chunk affiché).
 
 Quisque aliquam tempor magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
 
-```{r graphelm, fig.cap= "identique, avec un smoother (lm)", fig.pos="tb"}
+```{r graphelm, fig.cap= figcap("identique, avec un smoother (lm)"), fig.pos="tb"}
 gp3 <- gp1 + geom_smooth(method = "lm")
 gp3
 ```
@@ -337,7 +338,7 @@ Appendix A{-}
 
 La figure `r .rfig("allgraphs")` présente les trois graphes ensemble.
 
-```{r allgraphs, echo = FALSE, fig.width=w.13, fig.cap="Les trois ensemble"}
+```{r allgraphs, echo = FALSE, fig.width=w.13, fig.cap=figcap("Les trois ensemble")}
 gp1
 gp2
 gp3

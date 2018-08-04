@@ -101,11 +101,18 @@ tabcap <- function(caption,
 }
 
 
-# figure captions ?? ==> No, not needed with pdf_output
-figcap <- function(caption, chunklabel=knitr::opts_current$get("label")) {
+# figure captions ?? ==>  not needed with pdf_output
+figcap <- function(caption, 
+                   chunklabel=knitr::opts_current$get("label"),
+                   context=getcontext()) {
         # debug
         # thislabel <<- chunklabel
-        paste0("\\label{fig:", chunklabel, "}", caption)
+        switch(context,
+               latex = caption, #paste0("\\label{fig:", chunklabel, "}", caption),
+               html = paste0("<a name=fig:", chunklabel, ">",
+                             caption, "</a>"),
+               other = caption )
+       
 }
 
 # tests
@@ -118,14 +125,14 @@ figcap <- function(caption, chunklabel=knitr::opts_current$get("label")) {
 
 # inserting a reference to a label, using the context
 
-.ref <- function(prefix = NULL,
+.ref <- function(prefix = "",
                  reflabel = "",
                  context = getcontext()) {
         switch(EXPR = context,
                latex = paste0("\\ref{",prefix, reflabel,"}"),
-               html = paste0("<A HREF=\\#",
+               html = paste0("<a href=\"#",
                              prefix, reflabel,
-                             "\\>", reflabel , "</A>"), # reflabel here ?
+                             "\">", reflabel , "</a>"), # reflabel here ?
                other = paste0("(#",prefix, reflabel ,")")
         )
 }
@@ -135,6 +142,7 @@ figcap <- function(caption, chunklabel=knitr::opts_current$get("label")) {
 
 # .ref(prefix= "tab:",reflabel = "onelab", context =  "latex" )
 # .ref(prefix= "fig:", reflabel = "onelab", context = "html" )
+# .ref(prefix= "", reflabel = "onelab", context = "html" )
 # .ref(reflabel = "onelab", context = "html" )
 # .ref(prefix= "fig:", reflabel = "onelab", context = "other" )
 
