@@ -17,10 +17,9 @@ package png, jpeg
 Latex
 -----
 Latex package setspace
-tags dans modèle fait
 header logo
 telecharger les templates pandoc sur Github
-
+tags dans modèle fait
 
 HTML
 ----

@@ -92,21 +92,21 @@ toc-depth: 3 # profondeur de la table/sommaire
 # lof: yes # liste des figures
 
 output: 
-    pdf_document:
-      toc: yes
-      number_section: yes
-      fig_caption: yes # inutile ?
-      template: ../common/ptemplate3.tex
+    # pdf_document:
+    #   toc: yes
+    #   number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   template: ../common/ptemplate3.tex
     # word_document:
     #   toc: yes
     #   # number_section: yes
     #   fig_caption: yes # inutile ?
     #   # template: ./common/ptemplate3.tex
-    # html_document:
-    #   toc: yes
-    #   number_section: yes
-    #   fig_caption: yes # inutile ?
-    #   # template: ./common/ptemplate3.tex
+    html_document:
+      toc: yes
+      number_section: yes
+      fig_caption: yes # inutile ?
+      # template: ./common/ptemplate3.tex
 
 
 
@@ -190,7 +190,7 @@ Dans ce paragraphe : références bibliographiques, footnote par référence et 
 
 Lorem ipsum dolor [@qtz:UchArb] sit amet[^shortnote], consectetuer adipiscing elit[@qtz:UchArb; @cos:brf]. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.(http://www.ipag.fr).
 
-```{r table,message=FALSE, warning=FALSE, echo=FALSE}
+```{r petitable,message=FALSE, warning=FALSE, echo=FALSE}
 library(UsingR)
 knitr::kable(head(galton, 3), caption = tabcap("Un simple tableau") )
 ```
@@ -200,7 +200,7 @@ Vivamus
 -------
 Dans ce paragraphe : fotnote multi-paragraphe, réfarence à un tableau, lien avec texte, équation.
 
-Vivamus a tellus[^longnote]. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Référence au tableau `r .rtab("table")`.
+Vivamus a tellus[^longnote]. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Référence au tableau `r .rtab("petitable")`.
 
 Aenean nec lorem.[Lien_Ipag](http://www.ipag.fr "mon ecole")
 $$F_\psi(x_i) = e^x \cdot \int_{i}^{x} \frac{t^{3^{\beta}}}{2\psi(i)} \,\mathrm{dt}$$
@@ -265,13 +265,14 @@ Pellentesque cursus sagittis felis.![logo](../visuals/logoipag.jpg){width=0.5cm}
 
 Dans ce paragraphe : presqu'identique: chargement (inline R chunk) d'une image dans un texte, puis idem dans un code chunk indépendant.
 
-Laborator manusque hic caput. *un inline chunk ne fonctionne pas ici parce que l'image ne semble pas redimensionnable. voir avec les packages jpeg et png*
+Laborator manusque hic caput. *un inline chunk fonctionne pas ici si les packages jpeg et png sont dispo, mais l'alignement est perturbé après : * : essai: `r knitr:::include_graphics("../visuals/logoipag.jpg", dpi=600)`
 
 Et maintenant dans un paragraphe indépendant (ie dans un code chunk)
 ```{r includegraphs, out.width="1cm", fig.align= 'center'}
 knitr:::include_graphics("../visuals/logoipag.jpg")
 ```
 
+=> on voit que l'alignement est perturbé.
 
 ##### Vivamus
 a mi. Dans ce paragraphe : Référence tableau  et référence section.\
@@ -298,6 +299,12 @@ Integer ultrices lobortis eros {#Integer}
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin semper, ante vitae sollicitudin posuere, metus quam iaculis nibh, vitae scelerisque nunc massa eget pede. Sed velit urna, interdum vel, ultricies vel, faucibus at, quam. Donec elit est, consectetuer eget, consequat quis, tempus quis, wisi.
 
+Nouvel essai d'image dans un code chunk:
+```{r includegraphs2, out.width="1cm", fig.align= 'center'}
+knitr:::include_graphics("../visuals/logoipag.jpg")
+```
+
+
 Modelus modelum
 ---------------
 In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.
@@ -315,7 +322,7 @@ Donec ullamcorper fringilla eros. Fusce in sapien eu purus dapibus commodo. Cum 
 
 (Liens markdown a gogo: [This address][mylabel1] or [that address][mylabel3] or [thisdoc][thisdoc_pc]) 
 
-Référence tableau: (comme dans le tableau `r .rtab("table")`)
+Référence tableau: (comme dans le tableau `r .rtab("petitable")`)
 
 Cras faucibus condimentum odio. Sed ac ligula. Aliquam at eros. Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. (Lien vers section [Lorem](#lorem) )
 
