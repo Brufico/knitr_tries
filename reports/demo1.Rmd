@@ -76,7 +76,7 @@ toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes ou tru
 
 # debogage
 # --------
-debug_var: no # ves/no pour afficher les variables au début du texte
+debug_var: no # yes/no pour afficher les variables au début du texte
 
 # pied de page (un en-tête de page sera automatique si footer est défini)
 # -----------
@@ -88,7 +88,7 @@ footerright: page\ \thepage
 # en-tête de page
 header: yes #\shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
 # headerleft: #This is the *left*
-headercenter: --![Ipaglogo](../visuals/logoipag.jpg){width=1cm}--  #This is the *center* ### cannot put a figure here!!!!
+headercenter: "![Ipaglogo](../visuals/logoipag.jpg){width=0.5cm}"  #This is the *center* 
 # headerright: #This is the *right*
 
 # fin en-tête
