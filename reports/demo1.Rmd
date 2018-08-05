@@ -87,9 +87,9 @@ footerright: page\ \thepage
 # REM shortauthor ne fonctionnera que si shortauthor ou author sont définis
 # en-tête de page
 header: yes #\shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
-headerleft: #This is the *left*
-headercenter: #This is the *center* ### cannot put a figure here!!!!
-headerright: #This is the *right*
+# headerleft: #This is the *left*
+headercenter: --![Ipaglogo](../visuals/logoipag.jpg){width=1cm}--  #This is the *center* ### cannot put a figure here!!!!
+# headerright: #This is the *right*
 
 # fin en-tête
 
