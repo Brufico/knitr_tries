@@ -63,18 +63,6 @@ $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 
-% modif footer + header ---------- BFC
-$if(footer)$
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-% \fancyhf{} % neutralisé BFC
-\renewcommand{\headrulewidth}{0.5pt} % /no/ header decorative line % changed 0 to 0.5 BFC
-\renewcommand{\footrulewidth}{0.5pt} % footer decorative line
-% \cfoot{Page \thepage}
-%\cfoot{$footer$}
-\fancyfoot[C]{$footer$}
-$endif$
-% end modif: footer ---------- BFC
 
 % package hyperref
 \usepackage{hyperref}
@@ -367,6 +355,46 @@ $endfor$
                         $shortauthor$
                         $else$$author$
                         $endif$ }
+
+
+% modif footer + header ---------- BFC
+$if(footer)$
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% \fancyhf{} % neutralisé BFC
+\renewcommand{\headrulewidth}{0.5pt} % /no/ header decorative line % changed 0 to 0.5 BFC
+\renewcommand{\footrulewidth}{0.5pt} % footer decorative line
+% \cfoot{Page \thepage}
+%\cfoot{$footer$}
+$if(footerleft)$
+\fancyfoot[L]{$footerleft$}
+$endif$
+$if(footercenter)$
+\fancyfoot[C]{$footercenter$}
+$endif$
+$if(footerright)$
+\fancyfoot[R]{$footerright$}
+$endif$
+
+$endif$
+% end modif: footer ---------- BFC
+% header ----------
+$if(header)$
+
+$if(headerleft)$
+\fancyhead[L]{$headerleft$}
+$endif$
+$if(headercenter)$
+\fancyhead[C]{$headercenter$}
+$endif$
+$if(headerright)$
+\fancyhead[R]{$headerright$}
+$endif$
+
+$endif$
+% end header -------------
+
+
 %(redef sections)
 
 % \makeatletter

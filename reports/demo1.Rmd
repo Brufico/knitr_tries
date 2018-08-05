@@ -80,8 +80,21 @@ debug_var: no # ves/no pour afficher les variables au début du texte
 
 # pied de page (un en-tête de page sera automatique si footer est défini)
 # -----------
-footer: \shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
+footer: yes #\shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
+footerleft: \shortauthor
+footercenter: \shorttitle
+footerright: page\ \thepage
 # REM shortauthor ne fonctionnera que si shortauthor ou author sont définis
+# en-tête de page
+header: yes #\shortauthor \ --\ \shorttitle \ --\ page\ \thepage #mod template
+headerleft: #This is the *left*
+headercenter: #This is the *center* ### cannot put a figure here!!!!
+headerright: #This is the *right*
+
+# fin en-tête
+
+
+
 
 
 # toc et numérotation
@@ -93,21 +106,21 @@ toc-depth: 3 # profondeur de la table/sommaire
 # lof: yes # liste des figures
 
 output: 
-    # pdf_document:
-    #   toc: yes
-    #   number_section: yes
-    #   fig_caption: yes # inutile ?
-    #   template: ../common/ptemplate3.tex
+    pdf_document:
+      toc: yes
+      number_section: yes
+      fig_caption: yes # inutile ?
+      template: ../common/ptemplate3.tex
     # word_document:
     #   toc: yes
     #   # number_section: yes
     #   fig_caption: yes # inutile ?
     #   # template: ./common/ptemplate3.tex
-    html_document:
-      toc: yes
-      number_section: yes
-      fig_caption: yes # inutile ?
-      # template: ./common/ptemplate3.tex
+    # html_document:
+    #   toc: yes
+    #   number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   # template: ./common/ptemplate3.tex
 
 
 
