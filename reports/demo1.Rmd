@@ -25,7 +25,7 @@ author:
 - name: Ahmed Bruno
   email: ahmed.bruno@ipag.fr
 
-authorsep: ";\\ " # optional separator for detailed list (default is ' --\\enspace')
+# authorsep: " ; "  #";\\ " # optional separator for detailed list (default is ' --\\enspace')
 
 shortauthor: Bruno et al. # pour l'affichage de noms d'auteurs dans le pied de page
 
@@ -34,7 +34,7 @@ shortauthor: Bruno et al. # pour l'affichage de noms d'auteurs dans le pied de p
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 # date: "`r paste0('Revision: 31 juillet 2018, edition: ',  format(Sys.Date(), '%d %B %Y') )`"
 
-# inclusion d'un logo après le titre
+# inclusion d'un logo après le titre (pdf)
 logo: yes
 logopath: ../visuals/logoipag #extension omitted
 logowidth: 50pt
@@ -110,22 +110,22 @@ toc-depth: 3 # profondeur de la table/sommaire
 # lof: yes # liste des figures
 
 output: 
-    pdf_document:
-      toc: yes
-      number_section: yes
-      fig_caption: yes # inutile ?
-      template: ../common/ptemplate3.tex
+    # pdf_document:
+    #   toc: yes
+    #   number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   template: ../common/ptemplate3.tex
     # word_document:
     #   toc: yes
     #   # number_section: yes
     #   fig_caption: yes # inutile ?
     #   # template: ./common/ptemplate3.tex
-    # html_document:
-    #   toc: yes
-    #   number_section: yes
-    #   fig_caption: yes # inutile ?
-    #   theme: readable
-    #   template: ../common/ptemplate.html
+    html_document:
+      toc: yes
+      number_section: yes
+      fig_caption: yes # inutile ?
+      theme: readable
+      template: ../common/ptemplate.html
 
 
 

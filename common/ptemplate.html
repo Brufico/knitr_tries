@@ -430,24 +430,27 @@ $endif$
 
 
 
-<!-- auteurs (original, et bon)-->
+<!-- auteurs (original, modifié pour les séparateurs)-->
+$if(author)$
+<br>
 $for(author)$
 $if(author.name)$
   <h4 class="author"><em>$author.name$</em></h4>
     $if(author.affiliation)$
     <address class="author_afil">
-    $author.affiliation$<br>$endif$
+    $author.affiliation$$endif$
     $if(author.email)$
+    $if(author.affiliation)$$if(authorsep)$$authorsep$$else$ - $endif$$endif$
     <a class="author_email" href="mailto:#">$author.email$</a>
     </address>
    
     $endif$
 $else$
-<h4 class="author"><em>$author$</em></h4>
+  <h4 class="author"><em>$author$</em></h4>
 $endif$
 $endfor$
 
-
+$endif$
 
 
 
