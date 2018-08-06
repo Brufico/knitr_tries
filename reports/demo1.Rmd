@@ -120,8 +120,8 @@ output:
       toc: yes
       number_section: yes
       fig_caption: yes # inutile ?
-      theme: readable
-      # template: ../common/ptemplate.html
+      # theme: readable
+      template: ../common/ptemplate.html
 
 
 
@@ -151,22 +151,27 @@ subparagraph: yes  # si secspace: yes nécessaire avec titlesec sinon erreur ave
 
 secspace:
 - level: section
+  hname: h1
   front: -20pt
   up: 4
   down: 2.3
 - level: subsection
+  hname: h2
   front: -20pt
   up: 3.5
   down: 1.5
 - level: subsubsection
+  hname: h3
   front: 0pt
   up: 3
   down: 1
 # - level: paragraph
+#   hname: h4
 #   front: 0pt
 #   up: 2
 #   down: 1  
 # - level: subparagraph
+#   hname: h5
 #   front: 20pt
 #   up: .6
 #   down: 0  
