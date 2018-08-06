@@ -6,8 +6,12 @@ author: Bruno Fischer Colonimos
 
 06.08.2018
 ==========
-Vérifier le template HTML
-comparer les templates "officiels"
+
+comparer les templates "officiels" ==> Les templates knitr par défaut ne sont pas les templates pandoc.
+
+Vérifier le template HTML 
+
+
 Voir bookdown
 
 

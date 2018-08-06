@@ -106,21 +106,22 @@ toc-depth: 3 # profondeur de la table/sommaire
 # lof: yes # liste des figures
 
 output: 
-    pdf_document:
-      toc: yes
-      number_section: yes
-      fig_caption: yes # inutile ?
-      template: ../common/ptemplate3.tex
+    # pdf_document:
+    #   toc: yes
+    #   number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   template: ../common/ptemplate3.tex
     # word_document:
     #   toc: yes
     #   # number_section: yes
     #   fig_caption: yes # inutile ?
     #   # template: ./common/ptemplate3.tex
-    # html_document:
-    #   toc: yes
-    #   number_section: yes
-    #   fig_caption: yes # inutile ?
-    #   # template: ./common/ptemplate3.tex
+    html_document:
+      toc: yes
+      number_section: yes
+      fig_caption: yes # inutile ?
+      theme: readable
+      # template: ../common/ptemplate.html
 
 
 
