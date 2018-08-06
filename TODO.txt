@@ -4,6 +4,11 @@ title: TODO
 author: Bruno Fischer Colonimos
 ---
 
+06.08.2018
+==========
+Vérifier le template HTML
+comparer les templates "officiels"
+Voir bookdown
 
 
 03.08.18
@@ -16,13 +21,14 @@ package png, jpeg - fait
 
 Latex
 -----
-Latex package setspace _ fait
-header logo
-telecharger les templates pandoc sur Github _ fait
-tags dans modèle fait
+Latex package setspace - fait
+header logo - fait
+telecharger les templates pandoc sur Github - fait
+tags dans modèle - fait
 
 HTML
 ----
 
-vérifier l'affichage des équations
+vérifier l'affichage des équations (fonctionne en ligne, mais pas hors ligne)
 
+Vérifier le template HTML
