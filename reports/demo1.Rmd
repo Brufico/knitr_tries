@@ -4,13 +4,17 @@ shorttitle: "Pdf-Template demo"
 subtitle : "Comprendre, modifier et utiliser un template, essayer, démontrer des possibilités"
 
 # Authors or detailed list of authors -------
-author:
-- Bruno Fischer Colonimos
-- Aristote, Bruno
-- Bruno, Giordano
+# case 1: one author
+# author: Bruno Fischer Colonimos
 
-# si la section authordetails est présente, la section author n'est pas utilisée
-authordetails: 
+# case 2: multiple authors
+# author:
+# - Bruno Fischer Colonimos
+# - Aristote, Bruno
+# - Bruno, Giordano
+
+# # case 3: multiple authors , detailed list of
+author:
 - name: Bruno Fischer Colonimos
   affiliation: University of Somewhere
   email: br.fischer@ipag.fr
@@ -106,22 +110,22 @@ toc-depth: 3 # profondeur de la table/sommaire
 # lof: yes # liste des figures
 
 output: 
-    # pdf_document:
-    #   toc: yes
-    #   number_section: yes
-    #   fig_caption: yes # inutile ?
-    #   template: ../common/ptemplate3.tex
+    pdf_document:
+      toc: yes
+      number_section: yes
+      fig_caption: yes # inutile ?
+      template: ../common/ptemplate3.tex
     # word_document:
     #   toc: yes
     #   # number_section: yes
     #   fig_caption: yes # inutile ?
     #   # template: ./common/ptemplate3.tex
-    html_document:
-      toc: yes
-      number_section: yes
-      fig_caption: yes # inutile ?
-      # theme: readable
-      template: ../common/ptemplate.html
+    # html_document:
+    #   toc: yes
+    #   number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   theme: readable
+    #   template: ../common/ptemplate.html
 
 
 

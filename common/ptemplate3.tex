@@ -297,33 +297,35 @@ $endif$
 % definition du séparateur d'item dans la liste détaillée des auteurs
 \newcommand{\authorsep}{$if(authorsep)$$authorsep$$else$--\enspace$endif$}
 
-$if(authordetails)$
-  \author{$for(authordetails)$
-            $if(authordetails.name)$
-                $authordetails.name$
-                $if(authordetails.affiliation)$
-                \authorsep $authordetails.affiliation$
+$if(author)$
+  \author{$for(author)$
+            $if(author.name)$
+                $author.name$
+                $if(author.affiliation)$
+                \authorsep $author.affiliation$
                 $endif$
-                $if(authordetails.email)$
-                \authorsep $authordetails.email$
+                $if(author.email)$
+                \authorsep $author.email$
                 $endif$
                 \\
+            $else$
+            $author$\\
             $endif$
            $endfor$}
   \preauthor{\centering\large\emph}
   \postauthor{\par\vspace{1em}}
-$else$
-
-% original
-$if(author)$
-  \author{$for(author)$$author$$sep$ \\ $endfor$}
-  \preauthor{\centering\large\emph}
-  \postauthor{\par}
-$else$
-  \author{}
-  \preauthor{}\postauthor{}
-$endif$
- 
+% $else$
+% 
+% % original
+% $if(author)$
+%   \author{$for(author)$$author$$sep$ \\ $endfor$}
+%   \preauthor{\centering\large\emph}
+%   \postauthor{\par}
+% $else$
+%   \author{}
+%   \preauthor{}\postauthor{}
+% $endif$
+%  
 $endif$
 
 % end author /authors ==========
