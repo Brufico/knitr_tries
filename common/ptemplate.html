@@ -420,6 +420,13 @@ $endif$
 
 $endif$
 
+<!-- logo -->
+$if(logo)$
+$if(logobeforetitle)$
+<center><img src="$logopath$" alt="" width=$logowidth$></center>
+$endif$
+$endif$
+
 <!-- titre du doc -->
 
 $if(title)$
@@ -428,7 +435,13 @@ $if(subtitle)$
 <h3 class="subtitle"><em>$subtitle$</em></h3>
 $endif$
 
-
+<!-- logo -->
+$if(logo)$
+$if(logobeforetitle)$
+$else$
+<center><img src="$logopath$" alt="" width=$logowidth$></center>
+$endif$
+$endif$
 
 <!-- auteurs (original, modifié pour les séparateurs)-->
 $if(author)$
@@ -456,8 +469,10 @@ $endif$
 
 <!-- date -->
 $if(date)$
+<br>
 <h4 class="date"><em>$date$</em></h4>
 $endif$
+
 
 
 <!-- Abstract -->

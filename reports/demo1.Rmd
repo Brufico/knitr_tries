@@ -34,9 +34,10 @@ shortauthor: Bruno et al. # pour l'affichage de noms d'auteurs dans le pied de p
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 # date: "`r paste0('Revision: 31 juillet 2018, edition: ',  format(Sys.Date(), '%d %B %Y') )`"
 
-# inclusion d'un logo après le titre (pdf)
+# inclusion d'un logo après le titre (pdf), ou avant le titre (HTML)
 logo: yes
-logopath: ../visuals/logoipag #extension omitted
+logobeforetitle: no # HTML uniquement
+logopath: ../visuals/logoipag.JPG #extension omitted ??
 logowidth: 50pt
 
 
