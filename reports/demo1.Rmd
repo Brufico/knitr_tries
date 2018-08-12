@@ -56,10 +56,11 @@ abstract: |
 showtags: yes
 tags: "[nothing, nothingness, somethinglessness]"
 
+# bibliographie
 bibliography: ../common/example.bib
 link-citations: true
 nocite: |
-  @dum:Aris, @cos:brf
+  @dum:Aris, @cos:brf, @Stodden2014
 
 # paramètre d'output
 # ==================
@@ -75,7 +76,7 @@ fontsize: 12pt
 
 # Langue
 #  -----
-lang: fr # en = english, fr = français, de = Deutsch
+lang: en # en = english, fr = français, de = Deutsch
 toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes ou true
 # nom de la table = "Sommaire"
 
@@ -106,7 +107,7 @@ headercenter: "![Ipaglogo](../visuals/logoipag.jpg){width=0.5cm}"  #This is the 
 # ------------------
 
 secnumdepth: 4 # profondeur de numérotation des titres de section (LaTex)
-toc-depth: 3 # profondeur de la table/sommaire
+toc-depth: 3 # profondeur de la table/sommaire (LaTex)
 # lot: yes # liste des tableaux
 # lof: yes # liste des figures
 
@@ -120,13 +121,20 @@ output:
     #   toc: yes
     #   # number_section: yes
     #   fig_caption: yes # inutile ?
-    #   # template: ./common/ptemplate3.tex
+    #   reference_docx: ../common/word-styles-reference-01.docx
     html_document:
       toc: yes
+      # toc_float: yes
+      toc_float:
+            collapsed: yes # default
+            smooth_scroll: yes # default
+      # mathjax-url: yes
+      # mathjax: default
+      self_contained: false # default = yes
       number_section: yes
-      fig_caption: yes # inutile ?
+      fig_caption: yes
       theme: readable
-      template: ../common/ptemplate.html
+      # template: ../common/ptemplate.html
 
 
 
@@ -160,16 +168,25 @@ secspace:
   front: -20pt
   up: 4
   down: 2.3
+  hup: 68px
+  hsize: 34px
+  hdown: 39px
 - level: subsection
   hname: h2
   front: -20pt
   up: 3.5
   down: 1.5
+  hup: 38px
+  hsize: 30px
+  hdown: 23px
 - level: subsubsection
   hname: h3
   front: 0pt
   up: 3
   down: 1
+  hup: 36px
+  hsize: 24px
+  hdown: 12px
 # - level: paragraph
 #   hname: h4
 #   front: 0pt
@@ -180,6 +197,13 @@ secspace:
 #   front: 20pt
 #   up: .6
 #   down: 0  
+
+# c0de-folding
+code_folding: hide # ?????
+
+# Mathjax
+
+
 
 ---
 
@@ -274,7 +298,8 @@ Quisque aliquam tempor magna. Pellentesque habitant morbi tristique senectus et 
 gp3 <- gp1 + geom_smooth(method = "lm")
 gp3
 ```
-#### Nunc
+
+#### Nunc{.tabsets}
 Nunc ac magna. Maecenas odio dolor, vulputate vel, auctor ac, accumsan id, felis.
 
 
@@ -298,7 +323,7 @@ Et maintenant dans un paragraphe indépendant (ie dans un code chunk)
 knitr:::include_graphics("../visuals/logoipag.jpg")
 ```
 
-=> on voit que l'alignement est perturbé.
+=> on voit que l'alignement est perturbé en LaTex -- et que l'image n'apparait pas en HTML.
 
 ##### Vivamus
 a mi. Dans ce paragraphe : Référence tableau  et référence section.\
