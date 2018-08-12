@@ -8,22 +8,22 @@ subtitle : "Comprendre, modifier et utiliser un template, essayer, démontrer de
 # author: Bruno Fischer Colonimos
 
 # case 2: multiple authors
-# author:
-# - Bruno Fischer Colonimos
-# - Aristote, Bruno
-# - Bruno, Giordano
+author:
+- Bruno Fischer Colonimos
+- Aristote, Bruno
+- Bruno, Giordano
 
 # # case 3: multiple authors , detailed list of
-author:
-- name: Bruno Fischer Colonimos
-  affiliation: University of Somewhere
-  email: br.fischer@ipag.fr
-- name: Aristote, Bruno
-  affiliation: University of Nowhere
-- name: Bruno, Giordano
-  # affiliation: University of Anywhere
-- name: Ahmed Bruno
-  email: ahmed.bruno@ipag.fr
+# author:
+# - name: Bruno Fischer Colonimos
+#   affiliation: University of Somewhere
+#   email: br.fischer@ipag.fr
+# - name: Aristote, Bruno
+#   affiliation: University of Nowhere
+# - name: Bruno, Giordano
+#   # affiliation: University of Anywhere
+# - name: Ahmed Bruno
+#   email: ahmed.bruno@ipag.fr
 
 # authorsep: " ; "  #";\\ " # optional separator for detailed list (default is ' --\\enspace')
 
@@ -76,7 +76,7 @@ fontsize: 12pt
 
 # Langue
 #  -----
-lang: en # en = english, fr = français, de = Deutsch
+lang: fr # en = english, fr = français, de = Deutsch
 toc-sommaire: yes # si lang = fr et si la table est au début du doc, yes ou true
 # nom de la table = "Sommaire"
 
@@ -134,7 +134,7 @@ output:
       number_section: yes
       fig_caption: yes
       theme: readable
-      # template: ../common/ptemplate.html
+      template: ../common/ptemplate.html
 
 
 
@@ -164,42 +164,40 @@ subparagraph: yes  # si secspace: yes nécessaire avec titlesec sinon erreur ave
 
 secspace:
 - level: section
-  hname: h1
+  hlevel: h1
+  hsize: 34
   front: -20pt
-  up: 4
-  down: 2.3
-  hup: 68px
-  hsize: 34px
-  hdown: 39px
+  up: 3.0
+  down: 2
 - level: subsection
-  hname: h2
+  hlevel: h2
+  hsize: 30 #px
   front: -20pt
-  up: 3.5
-  down: 1.5
-  hup: 38px
-  hsize: 30px
-  hdown: 23px
+  up: 2.5
+  down: 1.25
 - level: subsubsection
-  hname: h3
+  hlevel: h3
+  hsize: 24
   front: 0pt
-  up: 3
-  down: 1
-  hup: 36px
-  hsize: 24px
-  hdown: 12px
-# - level: paragraph
-#   hname: h4
-#   front: 0pt
-#   up: 2
-#   down: 1  
-# - level: subparagraph
-#   hname: h5
-#   front: 20pt
-#   up: .6
-#   down: 0  
+  up: 1.5
+  down: 0.75
+- level: paragraph
+  hlevel: h4
+  hsize: 18
+  front: 0pt
+  up: 1
+  down: .5
+- level: subparagraph
+  hlevel: h5
+  hsize: 16
+  front: 20pt
+  up: .6
+  down: 0
+- hlevel: h6
+  hsize: 12
 
 # c0de-folding
-code_folding: hide # ?????
+# code_folding: hide # ?????
 
 # Mathjax
 
