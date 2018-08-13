@@ -36,7 +36,7 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 # inclusion d'un logo après le titre (pdf), ou avant le titre (HTML)
 logo: yes
-logobeforetitle: no # HTML uniquement
+logobeforetitle: no # HTML uniquement: yes = avant le titre
 logopath: ../visuals/logoipag.JPG #extension omitted ??
 logowidth: 50pt
 
@@ -128,8 +128,9 @@ output:
       toc_float:
             collapsed: yes # default
             smooth_scroll: yes # default
-      # mathjax-url: yes
-      # mathjax: default
+      code_folding: hide
+      # mathjax-url: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      # mathjax: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
       self_contained: false # default = yes
       number_section: yes
       fig_caption: yes
@@ -198,12 +199,9 @@ secspace:
 - hlevel: h1.title
   hsize: 40
   
-  
-# c0de-folding
-# code_folding: hide # ?????
 
-# Mathjax
-mathjax: default
+# Mathjax non fonctionnel
+# mathjax: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 
 
 ---
@@ -226,7 +224,7 @@ source(file.path("..", "common", "preparation.R"))
 ```{r setup, include=FALSE}
 # libraries
 library(knitr)
-knitr::opts_chunk$set(echo = TRUE, fig.cap = "", fig.width = w.12, fig.asp = a.34, fig.pos = "H", fig.align = "center", fig.show = "hold")
+knitr::opts_chunk$set(fig.cap = "", fig.width = w.12, fig.asp = a.34, fig.pos = "H", fig.align = "center", fig.show = "hold")
 ```
 
 <!-- Fin du code initial, début du document -->
@@ -240,7 +238,7 @@ Dans ce paragraphe : références bibliographiques, footnote par référence et 
 
 Lorem ipsum dolor [@qtz:UchArb] sit amet[^shortnote], consectetuer adipiscing elit[@qtz:UchArb; @cos:brf]. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.(http://www.ipag.fr).
 
-```{r petitable,message=FALSE, warning=FALSE, echo=FALSE}
+```{r petitable, message=FALSE, warning=FALSE}
 library(UsingR)
 knitr::kable(head(galton, 3), caption = tabcap("Un simple tableau") )
 ```
@@ -264,7 +262,7 @@ Dans ce paragraphe : 'Inline footnote' dans le titre, référence à une figure,
 In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
 Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla. Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod, purus ipsum pretium metus, in lacinia nulla nisl eget sapien, as in figure `r .rfig("graphe")`
 
-```{r graphe, message=FALSE, warning=FALSE, echo=FALSE, fig.cap=figcap("just a Scatterplot"), fig.pos= "tb"}
+```{r graphe, message=FALSE, warning=FALSE, fig.cap=figcap("just a Scatterplot"), fig.pos= "tb"}
 
 library(ggplot2)
 # suppressPackageStartupMessages(UsingR)
@@ -289,9 +287,12 @@ gp2
 ```
 
 
-### Quisque
+### Quisque {.tabset .tabset-pills}
 
-Dans ce paragraphe : génération de figure (code chunk affiché).
+Dans ce paragraphe : 
+
+* tous formats: génération de figure (code chunk affiché).
+* HTML: tabsets (les sous-sections sont affichées en tabs)
 
 Quisque aliquam tempor magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
 
@@ -300,7 +301,7 @@ gp3 <- gp1 + geom_smooth(method = "lm")
 gp3
 ```
 
-#### Nunc{.tabsets}
+#### Nunc
 Nunc ac magna. Maecenas odio dolor, vulputate vel, auctor ac, accumsan id, felis.
 
 
@@ -343,7 +344,7 @@ Dans ce paragraphe : lien markdown externe, lien  markdown interne, référence 
 
 Pellentesque porttitor, velit lacinia egestas auctor, diam eros tempus arcu, nec vulputate augue magna vel risus. Cras non magna vel ante adipiscing rhoncus. Vivamus a mi. Morbi neque. Aliquam erat volutpat. [Ipag link](http://www.ipag.fr),  
 
-Else [internal link](#lorem), or section `r .rsec("pc")`
+Else [internal link](#lorem), or section `r .rsec("pc")` (inacessible si rendu par un tab)
 
 
 Integer ultrices lobortis eros {#Integer}
@@ -388,7 +389,7 @@ Appendix A{-}
 
 La figure `r .rfig("allgraphs")` présente les trois graphes ensemble.
 
-```{r allgraphs, echo = FALSE, fig.width=w.13, fig.cap=figcap("Les trois ensemble")}
+```{r allgraphs, fig.width=w.13, fig.cap=figcap("Les trois ensemble")}
 gp1
 gp2
 gp3
