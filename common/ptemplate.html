@@ -79,13 +79,12 @@ $if(abstract)$
 </style>
 $endif$
 
+<!-- si re_espacement des paragraphes  -->
+
 $if(theme)$
 <style type="text/css">
 
-<!-- si re_espacement des paragraphes  -->
-
-$if(secspace)$
-
+$if(secspace)$ 
 $for(secspace)$
 $if(secspace.hlevel)$
   $secspace.hlevel$ {
@@ -104,8 +103,6 @@ h1.title {
 -->
 
 $else$
-
-<!-- fin re_espacement des paragraphes, retour au comportement original -->
 
 h1 {
   font-size: 34px;

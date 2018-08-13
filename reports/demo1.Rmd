@@ -8,22 +8,22 @@ subtitle : "Comprendre, modifier et utiliser un template, essayer, démontrer de
 # author: Bruno Fischer Colonimos
 
 # case 2: multiple authors
-author:
-- Bruno Fischer Colonimos
-- Aristote, Bruno
-- Bruno, Giordano
-
-# # case 3: multiple authors , detailed list of
 # author:
-# - name: Bruno Fischer Colonimos
-#   affiliation: University of Somewhere
-#   email: br.fischer@ipag.fr
-# - name: Aristote, Bruno
-#   affiliation: University of Nowhere
-# - name: Bruno, Giordano
-#   # affiliation: University of Anywhere
-# - name: Ahmed Bruno
-#   email: ahmed.bruno@ipag.fr
+# - Bruno Fischer Colonimos
+# - Aristote, Bruno
+# - Bruno, Giordano
+
+# case 3: multiple authors , detailed list of
+author:
+- name: Bruno Fischer Colonimos
+  affiliation: University of Somewhere
+  email: br.fischer@ipag.fr
+- name: Aristote, Bruno
+  affiliation: University of Nowhere
+- name: Bruno, Giordano
+  # affiliation: University of Anywhere
+- name: Ahmed Bruno
+  email: ahmed.bruno@ipag.fr
 
 # authorsep: " ; "  #";\\ " # optional separator for detailed list (default is ' --\\enspace')
 
@@ -134,7 +134,7 @@ output:
       number_section: yes
       fig_caption: yes
       theme: readable
-      template: ../common/ptemplate.html
+      # template: ../common/ptemplate.html
 
 
 
@@ -164,14 +164,14 @@ subparagraph: yes  # si secspace: yes nécessaire avec titlesec sinon erreur ave
 
 secspace:
 - level: section
-  hlevel: h1
-  hsize: 34
+  hlevel: h1 #HTML
+  hsize: 34 #HTML , unit = px
   front: -20pt
-  up: 3.0
-  down: 2
+  up: 3.5
+  down: 1.75
 - level: subsection
   hlevel: h2
-  hsize: 30 #px
+  hsize: 30
   front: -20pt
   up: 2.5
   down: 1.25
@@ -190,17 +190,20 @@ secspace:
 - level: subparagraph
   hlevel: h5
   hsize: 16
-  front: 20pt
+  front: 10pt
   up: .6
   down: 0
 - hlevel: h6
   hsize: 12
-
+- hlevel: h1.title
+  hsize: 40
+  
+  
 # c0de-folding
 # code_folding: hide # ?????
 
 # Mathjax
-
+mathjax: default
 
 
 ---
@@ -324,14 +327,14 @@ knitr:::include_graphics("../visuals/logoipag.jpg")
 => on voit que l'alignement est perturbé en LaTex -- et que l'image n'apparait pas en HTML.
 
 ##### Vivamus
-a mi. Dans ce paragraphe : Référence tableau  et référence section.\
+\ a mi. Dans ce paragraphe : Référence tableau  et référence section.\
 Fusce in sapien eu purus dapibus commodo (comme pour le tableau `r .rtab("modele")`). voir aussi section `r .rsec("Integer")`
 
-##### Morbi
-neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+##### Morbi 
+\ neque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
 ##### Aliquam
-erat volutpat.Dans ce paragraphe : lien markdown vers une section :(cf [Section Integer](#Integer))
+\ erat volutpat.Dans ce paragraphe : lien markdown vers une section :(cf [Section Integer](#Integer))
 
 
 ### Pellentesque
@@ -407,7 +410,7 @@ blah blah.
 
 
 
-References
+References{-}
 ==========
 
 <!-- the biblio references come automatically here -->

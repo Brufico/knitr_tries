@@ -436,7 +436,9 @@ $endif$
 $if(secspace)$
 \usepackage{titlesec}
 $for(secspace)$
+$if(secspace.level)$
 \titlespacing\$secspace.level${$secspace.front$}{*$secspace.up$}{*$secspace.down$}
+$endif$
 $endfor$
 $else$
 $endif$
