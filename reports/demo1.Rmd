@@ -122,26 +122,46 @@ output:
     #   # number_section: yes
     #   fig_caption: yes # inutile ?
     #   reference_docx: ../common/word-styles-reference-01.docx
-    html_document:
-      toc: yes
-      # toc_float: yes
-      toc_float:
-            collapsed: yes # default
-            smooth_scroll: yes # default
+    # html_document:
+    #   toc: yes
+    #   # toc_float: yes
+    #   toc_float:
+    #         collapsed: yes # default
+    #         smooth_scroll: yes # default
+    #   code_folding: hide
+    #   # mathjax-url: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    #   # mathjax: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    #   self_contained: false # default = yes
+    #   number_section: yes
+    #   fig_caption: yes
+    #   theme: readable
+    #   # template: ../common/ptemplate.html
+    # prettydoc::html_pretty: # bien, esthétique
+    #   theme: cayman
+    #   number_section: yes
+    #   toc: true
+    #   # toc_float: yes # does not work: error
+    #   # code_folding: hide # does not work: error
+    # rmdformats::material:  # material does not work: error
+    # rmdformats::readthedown:  # readthedown tres bien, esthétique
+    #   code_folding: hide
+    #   number_section: yes
+    #   toc: 2 # nombre 1:6
+    rmdformats::html_clean: ## parfait, comme son nom l'indique
       code_folding: hide
-      # mathjax-url: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-      # mathjax: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-      self_contained: false # default = yes
       number_section: yes
-      fig_caption: yes
-      theme: readable
-      # template: ../common/ptemplate.html
+      toc: 3 # nombre 1:6
+      # toc_float: yes inutile, table intégrée
+    # rmdformats::html_docco: # style bof mais voir pour la position des graphiques
+    #   toc: 3 # nombre 1:6
+    #   # toc_float: yes # non fonctionnel
+    #   number_section: yes
+    #   code_folding: hide # ok message d'erreur de Mathjax, mais fonctionne
 
-
-
+      
 #  couleurs des liens
 #  ------------------
-urlcolor: "blue"
+urlcolor: "blue" # "black"
 linkcolor: "red"
 toccolor: "Maroon"
 
