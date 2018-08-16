@@ -454,8 +454,39 @@ $endif$
 
 % intégration des packages dans le template 
 \usepackage{float}
-% \usepackage{ifthen}
 
+
+
+
+% traduction ------------------------------
+
+$if(lang)$
+% chapitre =
+$if(chapter_name)$
+\addto\captions$babel-lang${\renewcommand{\chaptername}{$chapter_name$\ }}
+$endif$
+% table des matières / sommaire
+$if(contents_name)$
+\addto\captions$babel-lang${\renewcommand{\contentsname}{$contents_name$\ }}
+$endif$
+% nom figures
+$if(figure_name)$
+\addto\captions$babel-lang${\renewcommand{\figurename}{$figure_name$}}
+$endif$
+% nom tableaux
+$if(table_name)$
+\addto\captions$babel-lang${\renewcommand{\tablename}{$table_name$}}
+$endif$
+% liste des tableaux
+$if(listtable_name)$
+\addto\captions$babel-lang${\renewcommand{\listtablename}{$listtable_name$}}
+$endif$
+% liste des figures
+$if(listfigure_name)$
+\addto\captions$babel-lang${\renewcommand{\listfigurename}{$listfigure_name$}}
+$endif$
+
+$endif$
 
 
 % document ======================================================================
@@ -528,13 +559,18 @@ $if(colorlinks)$
 $endif$
 \setcounter{tocdepth}{$toc-depth$}
 
-% traduction titre de la table ===(si francais, sommaire si au début)
-% \ifthenelse{\equal{$babel$}{francais}}
-\ifthenelse{\equal{$lang$}{fr}}
-        {\ifthenelse{\equal{$toc-sommaire$}{true}}
-                {\renewcommand{\contentsname}{Sommaire}}} %!!!!!!
-        { }
-{}
+% % traduction titre de la table ===(si francais, sommaire si au début)
+% % \ifthenelse{\equal{$babel$}{francais}}
+% \ifthenelse{\equal{$lang$}{fr}}
+%         {\ifthenelse{\equal{$toc-sommaire$}{true}}
+%                 {\renewcommand{\contentsname}{Sommaire}}} %!!!!!!
+%         { }
+% {}
+
+%$if(chapter_name)$
+% renewcommand{\chaptername}{Truc }
+%\addto\captionsenglish{\renewcommand{\chaptername}{Lecture }}
+%$endif$
 
 % fin traduction =======================================
 \tableofcontents
@@ -648,15 +684,17 @@ $if(debug_var)$
         \item author-meta -- $author-meta$
         \item listings -- $listings$
         \item lhs -- $lhs$
-        \item highlighting-macros -- $highlighting-macros$
-        \item verbatim-in-note -- $verbatim-in-note$
         \item tables -- $tables$
         \item strikeout -- $strikeout$
         \item indent -- $indent$
+        \item lang -- $lang$
+        \item babel-lang -- $babel-lang$
 \end{itemize}
 
 
 $endif$
+
+
 
 
 % ======================== end debugging variables =========================
