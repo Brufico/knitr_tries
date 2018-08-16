@@ -121,6 +121,7 @@ output:
       number_section: yes
       fig_caption: yes # inutile ?
       template: ../common/ptemplate3.tex
+      keep_tex: yes
     # word_document:
     #   toc: yes
     #   # number_section: yes
@@ -264,7 +265,7 @@ Lorem ipsum dolor [@qtz:UchArb] sit amet[^shortnote], consectetuer adipiscing el
 
 ```{r petitable, message=FALSE, warning=FALSE}
 library(UsingR)
-knitr::kable(head(galton, 3), caption = tabcap("Un simple tableau"), longtable = FALSE )
+pander(head(galton, 3), caption = tabcap("Un simple tableau"))
 ```
 
 
@@ -388,8 +389,8 @@ In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, 
 ```{r modele}
 g1 <- lm(child ~ parent, data = galton)
 
-kable(list(cor(galton), g1$coefficients), 
-      caption = tabcap("Correlation matrix, Regression coefficients"), longtable = FALSE )
+pander(cor(galton), 
+      caption = tabcap("Correlation matrix") )
 
 ```
 

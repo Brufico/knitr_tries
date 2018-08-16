@@ -554,8 +554,8 @@ $endif$
 
 % ======================== debugging variables ===============================
 
-\ifthenelse {\equal{$debug_var$}{true}}
-{
+$if(debug_var)$
+
 \begin{centering}
 \rule{2in}{0.4pt} 
 
@@ -656,8 +656,8 @@ $endif$
 \end{itemize}
 
 
-} % end if clause
-{} %else nothing
+$endif$
+
 
 % ======================== end debugging variables =========================
 
