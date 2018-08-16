@@ -42,7 +42,7 @@ logowidth: 50pt
 
 
 
-# résumé
+# résumé ==> Pas de résumé dans la classe book.
 # abstract: |
 #     Ceci est un résumé multi-paragraphes\
 #     This is just an experiment on formatting with a new template.  
@@ -67,7 +67,7 @@ nocite: |
 
 # paramètres généraux
 # -------------------
-documentclass: article
+documentclass: book
 papersize: a4
 fontsize: 12pt
 
@@ -112,11 +112,11 @@ toc-depth: 3 # profondeur de la table/sommaire (LaTex)
 # lof: yes # liste des figures
 
 output: 
-    pdf_document:
-      toc: yes
-      number_section: yes
-      fig_caption: yes # inutile ?
-      template: ../common/ptemplate3.tex
+    # pdf_document:
+    #   toc: yes
+    #   number_section: yes
+    #   fig_caption: yes # inutile ?
+    #   template: ../common/ptemplate3.tex
     # word_document:
     #   toc: yes
     #   # number_section: yes
@@ -131,11 +131,12 @@ output:
     #   code_folding: hide
     #   # mathjax-url: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
     #   # mathjax: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-    #   self_contained: false # default = yes
+    #   # mathjax: "default"
+    #   # self_contained: no # default = yes
     #   number_section: yes
     #   fig_caption: yes
     #   theme: readable
-    #   # template: ../common/ptemplate.html
+    #   # template: ../common/ptemplate.html # en HTML, empeche mathjax de fonctionner
     # prettydoc::html_pretty: # bien, esthétique
     #   theme: cayman
     #   number_section: yes
@@ -220,7 +221,7 @@ secspace:
   hsize: 40
   
 
-# Mathjax non fonctionnel
+# Mathjax non fonctionnel (fonctionne ok !!!!)
 # mathjax: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 
 

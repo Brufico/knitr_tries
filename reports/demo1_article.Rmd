@@ -35,23 +35,23 @@ date: "`r format(Sys.Date(), '%d %B %Y')`"
 # date: "`r paste0('Revision: 31 juillet 2018, edition: ',  format(Sys.Date(), '%d %B %Y') )`"
 
 # inclusion d'un logo après le titre (pdf), ou avant le titre (HTML)
-logo: yes
-logobeforetitle: no # HTML uniquement: yes = avant le titre
-logopath: ../visuals/logoipag.JPG #extension omitted ??
-logowidth: 50pt
+# logo: yes
+# logobeforetitle: no # HTML uniquement: yes = avant le titre
+# logopath: ../visuals/logoipag.JPG #extension omitted ??
+# logowidth: 50pt
 
 
 
 # résumé
-# abstract: |
-#     Ceci est un résumé multi-paragraphes\
-#     This is just an experiment on formatting with a new template.  
-#     
-#     I would certainly drag it for a long time, in order to cover many lines. But it will certainly be BORING,
-#     
-#     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING  
-#     BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING. link = http:/www.ipag.fr
-# 
+abstract: |
+    Ceci est un résumé multi-paragraphes\
+    This is just an experiment on formatting with a new template.
+
+    I would certainly drag it for a long time, in order to cover many lines. But it will certainly be BORING,
+
+    BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING
+    BORING, BORING, BORING, BORING, BORING, BORING, BORING, BORING. link = http:/www.ipag.fr ....
+
 # mots-clé, rubrique ajoutée au résumé, si présent
 showtags: yes
 tags: "[nothing, nothingness, somethinglessness]"
@@ -70,6 +70,10 @@ nocite: |
 documentclass: article
 papersize: a4
 fontsize: 12pt
+# 2 colonnes
+# classoption: twocolumn # problème avec longtable
+# header-includes:
+#         - \setlength{\columnsep}{18pt}
 
 ## pour varier l'interligne (nécessite latex package setspace)
 # linestretch: 2 
@@ -220,9 +224,8 @@ secspace:
   hsize: 40
   
 
-# Mathjax non fonctionnel
+# Mathjax non fonctionnel !!!! works in pdf, not HTML with custom template
 # mathjax: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-
 
 ---
 
@@ -243,6 +246,7 @@ source(file.path("..", "common", "preparation.R"))
 
 ```{r setup, include=FALSE}
 # libraries
+library(pander)
 library(knitr)
 knitr::opts_chunk$set(fig.cap = "", fig.width = w.12, fig.asp = a.34, fig.pos = "H", fig.align = "center", fig.show = "hold")
 ```
@@ -260,7 +264,7 @@ Lorem ipsum dolor [@qtz:UchArb] sit amet[^shortnote], consectetuer adipiscing el
 
 ```{r petitable, message=FALSE, warning=FALSE}
 library(UsingR)
-knitr::kable(head(galton, 3), caption = tabcap("Un simple tableau") )
+knitr::kable(head(galton, 3), caption = tabcap("Un simple tableau"), longtable = FALSE )
 ```
 
 
@@ -285,7 +289,6 @@ Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integ
 ```{r graphe, message=FALSE, warning=FALSE, fig.cap=figcap("just a Scatterplot"), fig.pos= "tb"}
 
 library(ggplot2)
-# suppressPackageStartupMessages(UsingR)
 data("galton")
 
 gp1 <- ggplot(galton, aes(parent, child)) + geom_jitter(width = .5, height = .5, alpha = .5)
@@ -386,7 +389,7 @@ In in nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, 
 g1 <- lm(child ~ parent, data = galton)
 
 kable(list(cor(galton), g1$coefficients), 
-      caption = tabcap("Correlation matrix, Regression coefficients") )
+      caption = tabcap("Correlation matrix, Regression coefficients"), longtable = FALSE )
 
 ```
 
